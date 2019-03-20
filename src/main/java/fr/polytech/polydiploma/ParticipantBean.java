@@ -37,34 +37,29 @@ public class ParticipantBean {
     public String getTimeslotId() { return timeslotId; }
     public void setTimeslotId(String timeslotId) { this.timeslotId = timeslotId; }
 
-    // Invoked when the "Select" button is pushed
-    public String select() {
-        FacesContext.getCurrentInstance()
-                .addMessage("form-error", new FacesMessage("Unknown customer: " + getFirstName() + " " + getLastName()));
-        return "";
-
-    }
-
-    // Invoked when the "Register" button is pushed
-    public String register() {
+    public String validate() {
         Timeslot timeslot = new Timeslot();
-        timeslot.setStart(LocalTime.of(2, 20));
-        timeslot.setEnd(LocalTime.of(2, 20));
-        timeslot.setId(42);
+        timeslot.setStartingHour(4);
+        timeslot.setStartingMinute(20);
+        timeslot.setEndingHour(5);
+        timeslot.setEndingMinute(0);
         Speaker speaker = new Speaker();
         speaker.setFirstname(getFirstName());
         speaker.setLastname(getLastName());
         speaker.setMail(getEmail());
         speaker.setId(5L);
+
+        manageParticipants.inviteSpeaker(speaker);
+
         try {
             planningUpdater.addTimeslot(timeslot, speaker);
         } catch (Exception e) {
-//            FacesContext.getCurrentInstance()
-//                    .addMessage("form-error", new FacesMessage("Couldn't send mail!"));
+            FacesContext.getCurrentInstance()
+                    .addMessage("form-error", new FacesMessage("Couldn't send mail!"));
         }
-        FacesContext.getCurrentInstance()
-                .addMessage("form-success", new FacesMessage("VIP " + getFirstName() + " " + getLastName() + " was assign to a timeslot number " + getTimeslotId() + "!"));
-        return "";
+//        FacesContext.getCurrentInstance()
+//                .addMessage("form-error", new FacesMessage("VIP " + getFirstName() + " " + getLastName() + " was assign to a timeslot number " + getTimeslotId() + "!"));
+        return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     }
 
 }

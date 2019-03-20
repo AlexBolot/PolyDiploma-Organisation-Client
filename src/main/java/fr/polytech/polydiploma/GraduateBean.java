@@ -11,8 +11,7 @@ import java.util.logging.Logger;
 @SessionScoped
 public class GraduateBean {
 
-    @EJB
-    private transient ManageParticipants manageParticipants;
+    @EJB private transient ManageParticipants manageParticipants;
 
     private static final Logger log = Logger.getLogger(GraduateBean.class.getName());
 
@@ -39,8 +38,14 @@ public class GraduateBean {
 
     // Invoked when the "Register" button is pushed
     public String register() {
+        Graduate graduate = new Graduate();
+        graduate.setLastname(lastname);
+        graduate.setFirstname(firstname);
+        graduate.setMail(email);
+
+        manageParticipants.inviteExpected(graduate);
         FacesContext.getCurrentInstance()
-                .addMessage("form-error", new FacesMessage("Customer " + getFirstName() + " " + getLastName() + " already exists!"));
+                .addMessage("form-success", new FacesMessage("Graduate " + getFirstName() + " " + getLastName() + " has been created!"));
         return "";
     }
 
