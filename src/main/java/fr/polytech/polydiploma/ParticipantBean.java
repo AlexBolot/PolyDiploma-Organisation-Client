@@ -36,15 +36,8 @@ public class ParticipantBean {
     public void setTimeslotId(String timeslotId) { this.timeslotId = timeslotId; }
 
     public String validate() {
-        Timeslot timeslot = new Timeslot();
-        timeslot.setStartingHour(4);
-        timeslot.setStartingMinute(20);
-        timeslot.setEndingHour(5);
-        timeslot.setEndingMinute(0);
-        Speaker speaker = new Speaker();
-        speaker.setFirstname(getFirstName());
-        speaker.setLastname(getLastName());
-        speaker.setMail(getEmail());
+        Timeslot timeslot = new Timeslot(4,20,5,0);
+        Speaker speaker = new Speaker(getFirstName(), getLastName(), getEmail());
         speaker.setId(5L);
 
         manageParticipants.inviteSpeaker(speaker);
