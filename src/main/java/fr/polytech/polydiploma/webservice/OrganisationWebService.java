@@ -19,12 +19,12 @@ import java.util.List;
 public interface OrganisationWebService {
 
     @WebMethod
-    @Interceptors({ExpectedVerifier.class})
+//    @Interceptors({ExpectedVerifier.class})
     void addSpeaker(@WebParam(name = "speaker") Speaker speaker,
                     @WebParam(name = "timeslot") Timeslot timeslot) throws ExternalPartnerException;
 
     @WebMethod
-    @Interceptors({ExpectedVerifier.class})
+//    @Interceptors({ExpectedVerifier.class})
     void addGraduate(@WebParam(name = "graduate") Graduate graduate);
 
     @WebMethod
