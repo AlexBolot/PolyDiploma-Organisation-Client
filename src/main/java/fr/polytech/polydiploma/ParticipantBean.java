@@ -62,4 +62,15 @@ public class ParticipantBean {
         return "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     }
 
+    /**
+     * Invoqued when the "Display Participants" button is pushed
+     */
+    public String seeParticipants() {
+        System.out.println("Tu m'as appuyé dessus");
+        FacesContext.getCurrentInstance()
+                .addMessage("form-success",
+                        new FacesMessage(manageParticipants.requireParticipants().toString()));
+        return "Heyheyhey";
+    }
+
 }

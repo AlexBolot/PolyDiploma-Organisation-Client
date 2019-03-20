@@ -15,7 +15,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import java.util.List;
 
-@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/plydiploma/organisation")
+@WebService(targetNamespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation")
 public interface OrganisationWebService {
 
     @WebMethod
