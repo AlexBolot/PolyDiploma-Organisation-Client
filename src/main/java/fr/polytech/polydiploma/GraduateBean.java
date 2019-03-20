@@ -20,21 +20,33 @@ public class GraduateBean implements Serializable {
     private String lastname;
     private String email;
 
-    public String getFirstName() { return firstname; }
-    public void setFirstName(String firstname) { this.firstname = firstname; }
+    public String getFirstname() {
+        return firstname;
+    }
 
-    public String getLastName() { return lastname; }
-    public void setLastName(String lastname) { this.lastname = lastname; }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
     // Invoked when the "Select" button is pushed
     public String select() {
-        FacesContext.getCurrentInstance()
-                .addMessage("form-error", new FacesMessage("Unknown customer: " + getFirstName() + " " + getLastName()));
-        return "";
+        Graduate graduate = new Graduate(getFirstname(), getLastname(), getEmail());
+        manageParticipants.inviteExpected(graduate);
 
+        FacesContext.getCurrentInstance()
+                .addMessage("form-error", new FacesMessage("Added graduate : " + getFirstname() + " " + getLastname()));
+        return "";
     }
 
     // Invoked when the "Register" button is pushed
@@ -46,7 +58,7 @@ public class GraduateBean implements Serializable {
 
         manageParticipants.inviteExpected(graduate);
         FacesContext.getCurrentInstance()
-                .addMessage("form-success", new FacesMessage("Graduate " + getFirstName() + " " + getLastName() + " has been created!"));
+                .addMessage("form-success", new FacesMessage("Graduate " + getFirstname() + " " + getLastname() + " has been created!"));
         return "";
     }
 

@@ -1,14 +1,12 @@
 package fr.polytech.polydiploma;
 
 import fr.polytech.polydiploma.entities.Timeslot;
-import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import java.time.LocalTime;
 import java.util.logging.Logger;
 
 @ManagedBean
