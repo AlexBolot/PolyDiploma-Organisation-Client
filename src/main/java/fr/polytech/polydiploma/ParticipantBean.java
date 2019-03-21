@@ -2,11 +2,13 @@ package fr.polytech.polydiploma;
 
 import fr.polytech.polydiploma.entities.Timeslot;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import java.util.List;
 import java.util.logging.Logger;
 
 @ManagedBean
@@ -18,6 +20,7 @@ public class ParticipantBean {
 
     private static final Logger log = Logger.getLogger(GraduateBean.class.getName());
 
+    private List<Participant> participants;
     private String firstname;
     private String lastname;
     private String email;
@@ -69,6 +72,11 @@ public class ParticipantBean {
                 .addMessage("form-success",
                         new FacesMessage(manageParticipants.requireParticipants().toString()));
         return "Heyheyhey";
+    }
+
+    @PostConstruct
+    private void initList() {
+        this.participants = manageParticipants.requireParticipants();
     }
 
 }

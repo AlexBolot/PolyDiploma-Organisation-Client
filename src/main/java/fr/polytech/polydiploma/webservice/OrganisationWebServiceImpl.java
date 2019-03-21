@@ -1,6 +1,7 @@
 package fr.polytech.polydiploma.webservice;
 
 import fr.polytech.polydiploma.*;
+import fr.polytech.polydiploma.entities.Date;
 import fr.polytech.polydiploma.entities.Planning;
 import fr.polytech.polydiploma.entities.Timeslot;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
@@ -26,12 +27,17 @@ public class OrganisationWebServiceImpl implements OrganisationWebService {
     public void addSpeaker(Speaker speaker, Timeslot timeslot) throws ExternalPartnerException {
         planningUpdater.addTimeslot(timeslot, speaker);
         manageParticipants.inviteSpeaker(speaker);
-        log.info("Un message");
     }
 
     @Override
     public void addGraduate(Graduate graduate) {
         manageParticipants.inviteExpected(graduate);
+    }
+
+    @Override
+    public void setDateOfCerenomy(Date date, Timeslot timeslot) {
+        planningUpdater.setCeremonySlot(date, timeslot);
+        log.info("Ceremony date is set");
     }
 
     @Override
