@@ -1,6 +1,5 @@
 package fr.polytech.polydiploma.remote.cli.framework;
 
-import java.io.EOFException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -11,7 +10,7 @@ public class Shell<T> {
     protected String invite;
 
     public final void run() {
-        System.out.println("Interactive shell started. " + HELP_SYMBOL + " for help.\n");
+        System.out.println("Le shell interactif est lancé. " + HELP_SYMBOL + " pour de l'aide.\n");
         run(System.in, false, 0);
     }
 
@@ -24,7 +23,7 @@ public class Shell<T> {
             for(int i = 0; i < indent; i++) { System.out.print(" "); }
             System.out.print(invite + " > ");
 
-            if(!scanner.hasNext()) { System.out.println("Reaching end of file"); break; }
+            if(!scanner.hasNext()) { System.out.println("Fin du fichier atteint"); break; }
 
             String keyword = scanner.next().trim();
 
@@ -50,7 +49,7 @@ public class Shell<T> {
                         shouldContinue = processCommand(keyword, args);
                 }
                 catch (IllegalArgumentException iae) {
-                    System.err.println("Illegal arguments for command "+keyword+": " + args);
+                    System.err.println("Mauvais paramétres pour la commande "+keyword+": " + args);
                 } catch (Exception e) {
                     System.err.println("Exception caught while processing command:\n  " + e);
                 }
@@ -61,7 +60,7 @@ public class Shell<T> {
 
     private boolean processCommand(String keyword, List<String> args) throws Exception {
         if (!commands.containsKey(keyword)) {
-            System.out.println("Unknown command: " + keyword);
+            System.out.println("Commande inconnue: " + keyword);
             return true;
         }
 
@@ -72,7 +71,7 @@ public class Shell<T> {
             return inst.process(args);
 
         } catch(InstantiationException|IllegalAccessException e) {
-            System.err.println("Unable to instantiate command " + command.toString());
+            System.err.println("Impossible d'éxecuter la commande " + command.toString());
             e.printStackTrace();
             return true;
         }
@@ -96,10 +95,10 @@ public class Shell<T> {
         try {
             String identifier = command.newInstance().identifier();
             if (identifier.contains(" "))
-                throw new IllegalArgumentException("Identifier cannot contain whitespace");
+                throw new IllegalArgumentException("Les identificateur ne peuvent pas contenir d'espace");
             commands.put(identifier, command);
         } catch(InstantiationException|IllegalAccessException|IllegalArgumentException e) {
-            System.err.println("Unable to register command " + command.toString());
+            System.err.println("Impossible d'enregistrer la commande " + command.toString());
             e.printStackTrace();
         }
     }
@@ -115,7 +114,7 @@ public class Shell<T> {
                 System.out.println("  - " + instance.identifier()+": " + instance.describe());
             }
             catch(InstantiationException|IllegalAccessException e) {
-                System.err.println("Unable to print help for registered command " + c);
+                System.err.println("Impossible d'afficher de l'aide pour la commande enregistrer " + c);
                 e.printStackTrace();
             }
         }

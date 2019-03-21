@@ -28,8 +28,8 @@ public class App extends Shell<PolydiplomaOrganisationPublicAPI> {
         String host = ( args.length == 0 ? "localhost" : args[0] );
         String port = ( args.length < 2  ? "8082"      : args[1] );
         System.out.println("\n\nLancement du client pour l'organisation de Polydiploma");
-        System.out.println("  - Remote server: " + host);
-        System.out.println("  - Port number:   " + port);
+        System.out.println("  - Serveur distant: " + host);
+        System.out.println("  - Numéro de port:  " + port);
         App app = new App(host, port);
         app.run();
         System.out.println("Sortie du client pour l'organisation de Polydiploma\n\n");

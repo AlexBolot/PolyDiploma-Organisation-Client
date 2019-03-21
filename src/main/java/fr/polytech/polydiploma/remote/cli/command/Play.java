@@ -26,7 +26,7 @@ public class Play extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String describe() {
-        return "Play commands stored in a given file (play FILENAME)";
+        return "Execute les commandes dans un fichier (play NOM_DE_FICHIER)";
     }
 
 }
