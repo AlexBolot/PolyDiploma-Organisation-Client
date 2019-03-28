@@ -23,6 +23,8 @@ public class InviteGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
         graduate.setFirstname(firstname);
         graduate.setLastname(lastname);
         graduate.setMail(mail);
+
+        shell.system.organisation.addGraduate(graduate);
     }
 
     @Override

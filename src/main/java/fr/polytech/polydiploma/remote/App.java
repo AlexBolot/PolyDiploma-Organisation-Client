@@ -20,6 +20,7 @@ public class App extends Shell<PolydiplomaOrganisationPublicAPI> {
                 Total.class,
                 ListParticipant.class,
                 SetDateAndHour.class,
+                GetDeliveryDate.class,
                 Play.class
         );
     }

@@ -28,6 +28,8 @@ public class ObjectFactory {
     private final static QName _AddGraduateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addGraduateResponse");
     private final static QName _AddSpeaker_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeaker");
     private final static QName _AddSpeakerResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeakerResponse");
+    private final static QName _GetDeliveryDate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDate");
+    private final static QName _GetDeliveryDateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDateResponse");
     private final static QName _GetParticipantList_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantList");
     private final static QName _GetParticipantListResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantListResponse");
     private final static QName _GetPlanning_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanning");
@@ -35,6 +37,7 @@ public class ObjectFactory {
     private final static QName _SetDateOfCerenomy_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCerenomy");
     private final static QName _SetDateOfCerenomyResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCerenomyResponse");
     private final static QName _ExternalPartnerException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "ExternalPartnerException");
+    private final static QName _TimeslotOverlapException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "TimeslotOverlapException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: fr.polytech.polydiploma.remote.stubs
@@ -89,6 +92,22 @@ public class ObjectFactory {
      */
     public AddSpeakerResponse createAddSpeakerResponse() {
         return new AddSpeakerResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetDeliveryDate }
+     * 
+     */
+    public GetDeliveryDate createGetDeliveryDate() {
+        return new GetDeliveryDate();
+    }
+
+    /**
+     * Create an instance of {@link GetDeliveryDateResponse }
+     * 
+     */
+    public GetDeliveryDateResponse createGetDeliveryDateResponse() {
+        return new GetDeliveryDateResponse();
     }
 
     /**
@@ -148,11 +167,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Graduate }
+     * Create an instance of {@link TimeslotOverlapException }
      * 
      */
-    public Graduate createGraduate() {
-        return new Graduate();
+    public TimeslotOverlapException createTimeslotOverlapException() {
+        return new TimeslotOverlapException();
+    }
+
+    /**
+     * Create an instance of {@link Speaker }
+     * 
+     */
+    public Speaker createSpeaker() {
+        return new Speaker();
     }
 
     /**
@@ -164,11 +191,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Guest }
+     * Create an instance of {@link Timeslot }
      * 
      */
-    public Guest createGuest() {
-        return new Guest();
+    public Timeslot createTimeslot() {
+        return new Timeslot();
     }
 
     /**
@@ -180,19 +207,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Timeslot }
+     * Create an instance of {@link Graduate }
      * 
      */
-    public Timeslot createTimeslot() {
-        return new Timeslot();
+    public Graduate createGraduate() {
+        return new Graduate();
     }
 
     /**
-     * Create an instance of {@link Speaker }
+     * Create an instance of {@link Guest }
      * 
      */
-    public Speaker createSpeaker() {
-        return new Speaker();
+    public Guest createGuest() {
+        return new Guest();
     }
 
     /**
@@ -237,6 +264,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "addSpeakerResponse")
     public JAXBElement<AddSpeakerResponse> createAddSpeakerResponse(AddSpeakerResponse value) {
         return new JAXBElement<AddSpeakerResponse>(_AddSpeakerResponse_QNAME, AddSpeakerResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeliveryDate }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getDeliveryDate")
+    public JAXBElement<GetDeliveryDate> createGetDeliveryDate(GetDeliveryDate value) {
+        return new JAXBElement<GetDeliveryDate>(_GetDeliveryDate_QNAME, GetDeliveryDate.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetDeliveryDateResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getDeliveryDateResponse")
+    public JAXBElement<GetDeliveryDateResponse> createGetDeliveryDateResponse(GetDeliveryDateResponse value) {
+        return new JAXBElement<GetDeliveryDateResponse>(_GetDeliveryDateResponse_QNAME, GetDeliveryDateResponse.class, null, value);
     }
 
     /**
@@ -300,6 +345,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "ExternalPartnerException")
     public JAXBElement<ExternalPartnerException> createExternalPartnerException(ExternalPartnerException value) {
         return new JAXBElement<ExternalPartnerException>(_ExternalPartnerException_QNAME, ExternalPartnerException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TimeslotOverlapException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "TimeslotOverlapException")
+    public JAXBElement<TimeslotOverlapException> createTimeslotOverlapException(TimeslotOverlapException value) {
+        return new JAXBElement<TimeslotOverlapException>(_TimeslotOverlapException_QNAME, TimeslotOverlapException.class, null, value);
     }
 
 }

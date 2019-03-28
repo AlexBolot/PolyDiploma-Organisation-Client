@@ -33,8 +33,8 @@ import javax.xml.bind.annotation.XmlType;
     "mail"
 })
 @XmlSeeAlso({
-    Graduate.class,
-    Speaker.class
+    Speaker.class,
+    Graduate.class
 })
 public class Expected
     extends Participant
