@@ -1,15 +1,13 @@
 package fr.polytech.polydiploma.webservice;
 
-import fr.polytech.polydiploma.Graduate;
 import fr.polytech.polydiploma.Participant;
 import fr.polytech.polydiploma.Speaker;
 import fr.polytech.polydiploma.entities.Date;
 import fr.polytech.polydiploma.entities.Planning;
 import fr.polytech.polydiploma.entities.Timeslot;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
-import fr.polytech.polydiploma.interceptor.ExpectedVerifier;
+import fr.polytech.polydiploma.exceptions.TimeslotOverlapException;
 
-import javax.interceptor.Interceptors;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -22,16 +20,19 @@ public interface OrganisationWebService {
     @WebMethod
 //    @Interceptors({ExpectedVerifier.class})
     void addSpeaker(@WebParam(name = "speaker") Speaker speaker,
-                    @WebParam(name = "timeslot") Timeslot timeslot) throws ExternalPartnerException;
+                    @WebParam(name = "timeslot") Timeslot timeslot) throws ExternalPartnerException, TimeslotOverlapException;
 
     @WebMethod
-//    @Interceptors({ExpectedVerifier.class})
-    void addGraduate(@WebParam(name = "graduate") Graduate graduate);
+    void inviteGraduates() throws ExternalPartnerException;
 
     @WebMethod
 //    @Interceptors({ExpectedVerifier.class})
     void setDateOfCerenomy(@WebParam(name = "date") Date date,
                      @WebParam(name = "timeslot") Timeslot timeslot);
+
+    @WebMethod
+    @WebResult(name = "delivery_date")
+    Date getDeliveryDate() throws ExternalPartnerException;
 
     @WebMethod
     @WebResult(name = "participant_list")

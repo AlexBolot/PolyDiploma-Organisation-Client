@@ -5,6 +5,7 @@ import fr.polytech.polydiploma.entities.Date;
 import fr.polytech.polydiploma.entities.Planning;
 import fr.polytech.polydiploma.entities.Timeslot;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
+import fr.polytech.polydiploma.exceptions.TimeslotOverlapException;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -22,22 +23,29 @@ public class OrganisationWebServiceImpl implements OrganisationWebService {
 
     @EJB private transient ManageParticipants manageParticipants;
     @EJB private transient PlanningUpdater planningUpdater;
+    @EJB private transient GraduatesValidation graduatesValidation;
 
     @Override
-    public void addSpeaker(Speaker speaker, Timeslot timeslot) throws ExternalPartnerException {
+    public void addSpeaker(Speaker speaker, Timeslot timeslot) throws ExternalPartnerException, TimeslotOverlapException {
         planningUpdater.addTimeslot(timeslot, speaker);
         manageParticipants.inviteSpeaker(speaker);
     }
 
     @Override
-    public void addGraduate(Graduate graduate) {
-        manageParticipants.inviteExpected(graduate);
+    public void inviteGraduates() throws ExternalPartnerException {
+        graduatesValidation.inviteGraduates();
     }
+
 
     @Override
     public void setDateOfCerenomy(Date date, Timeslot timeslot) {
         planningUpdater.setCeremonySlot(date, timeslot);
         log.info("Ceremony date is set");
+    }
+
+    @Override
+    public Date getDeliveryDate() throws ExternalPartnerException {
+        return graduatesValidation.requireDeliveryDate();
     }
 
     @Override

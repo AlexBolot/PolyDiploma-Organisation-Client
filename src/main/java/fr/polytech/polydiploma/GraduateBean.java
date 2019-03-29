@@ -42,7 +42,7 @@ public class GraduateBean implements Serializable {
     // Invoked when the "Select" button is pushed
     public String select() {
         Graduate graduate = new Graduate(getFirstname(), getLastname(), getEmail());
-        manageParticipants.inviteExpected(graduate);
+        manageParticipants.inviteSpeaker(graduate);
 
         FacesContext.getCurrentInstance()
                 .addMessage("form-error", new FacesMessage("Added graduate : " + getFirstname() + " " + getLastname()));
@@ -56,7 +56,7 @@ public class GraduateBean implements Serializable {
         graduate.setFirstname(firstname);
         graduate.setMail(email);
 
-        manageParticipants.inviteExpected(graduate);
+        manageParticipants.inviteSpeaker(graduate);
         FacesContext.getCurrentInstance()
                 .addMessage("form-success", new FacesMessage("Graduate " + getFirstname() + " " + getLastname() + " has been created!"));
         return "";

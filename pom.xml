@@ -50,6 +50,11 @@
       <artifactId>PlanCeremony</artifactId>
       <version>1.0</version>
     </dependency>
+    <dependency>
+      <groupId>fr.polytech.polydiploma</groupId>
+      <artifactId>GetGraduated</artifactId>
+      <version>1.0</version>
+    </dependency>
     <!-- Dependencies for the OpenEJB framework (provided at runtime by the app server) -->
     <dependency>
       <groupId>org.apache.tomee</groupId>
@@ -185,19 +190,15 @@
   <repositories>
     <repository>
       <id>centralDev</id>
-      <name>608ca269e086-releases</name>
+      <name>82ae819e11f0-releases</name>
       <url>http://51.83.69.199:8081/artifactory/libs-release-local</url>
-
-      <!--<url>http://51.83.69.199:8081/artifactory/libs-release-local</url>-->
     </repository>
   </repositories>
   <distributionManagement>
     <repository>
       <id>centralDev</id>
-      <name>608ca269e086-releases</name>
+      <name>82ae819e11f0-releases</name>
       <url>http://51.83.69.199:8081/artifactory/libs-release-local</url>
-
-      <!--<url>http://51.83.69.199:8081/artifactory/libs-release-local</url>-->
     </repository>
   </distributionManagement>
 
