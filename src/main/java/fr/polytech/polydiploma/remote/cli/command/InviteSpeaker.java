@@ -34,7 +34,7 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
         timeslot.setStartingMinute(Integer.parseInt(startingMinute));
         timeslot.setEndingHour(Integer.parseInt(endingHour));
         timeslot.setEndingMinute(Integer.parseInt(endingMinute));
-        
+
         shell.system.organisation.addSpeaker(speaker, timeslot);
     }
 
