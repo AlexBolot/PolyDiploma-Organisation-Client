@@ -1,9 +1,7 @@
 package fr.polytech.polydiploma.webservice;
 
 import fr.polytech.polydiploma.*;
-import fr.polytech.polydiploma.entities.Date;
-import fr.polytech.polydiploma.entities.Planning;
-import fr.polytech.polydiploma.entities.Timeslot;
+import fr.polytech.polydiploma.entities.*;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
 import fr.polytech.polydiploma.exceptions.TimeslotOverlapException;
 

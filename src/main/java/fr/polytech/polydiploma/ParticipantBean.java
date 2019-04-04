@@ -1,5 +1,7 @@
 package fr.polytech.polydiploma;
 
+import fr.polytech.polydiploma.entities.Participant;
+import fr.polytech.polydiploma.entities.Speaker;
 import fr.polytech.polydiploma.entities.Timeslot;
 
 import javax.annotation.PostConstruct;

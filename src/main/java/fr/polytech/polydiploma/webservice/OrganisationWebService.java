@@ -1,7 +1,7 @@
 package fr.polytech.polydiploma.webservice;
 
-import fr.polytech.polydiploma.Participant;
-import fr.polytech.polydiploma.Speaker;
+import fr.polytech.polydiploma.entities.Participant;
+import fr.polytech.polydiploma.entities.Speaker;
 import fr.polytech.polydiploma.entities.Date;
 import fr.polytech.polydiploma.entities.Planning;
 import fr.polytech.polydiploma.entities.Timeslot;
