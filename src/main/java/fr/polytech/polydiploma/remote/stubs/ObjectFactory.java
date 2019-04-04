@@ -24,8 +24,6 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AddGraduate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addGraduate");
-    private final static QName _AddGraduateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addGraduateResponse");
     private final static QName _AddSpeaker_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeaker");
     private final static QName _AddSpeakerResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeakerResponse");
     private final static QName _GetDeliveryDate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDate");
@@ -34,6 +32,8 @@ public class ObjectFactory {
     private final static QName _GetParticipantListResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantListResponse");
     private final static QName _GetPlanning_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanning");
     private final static QName _GetPlanningResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanningResponse");
+    private final static QName _InviteGraduates_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduates");
+    private final static QName _InviteGraduatesResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduatesResponse");
     private final static QName _SetDateOfCerenomy_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCerenomy");
     private final static QName _SetDateOfCerenomyResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCerenomyResponse");
     private final static QName _ExternalPartnerException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "ExternalPartnerException");
@@ -60,22 +60,6 @@ public class ObjectFactory {
      */
     public Planning.Timeslots createPlanningTimeslots() {
         return new Planning.Timeslots();
-    }
-
-    /**
-     * Create an instance of {@link AddGraduate }
-     * 
-     */
-    public AddGraduate createAddGraduate() {
-        return new AddGraduate();
-    }
-
-    /**
-     * Create an instance of {@link AddGraduateResponse }
-     * 
-     */
-    public AddGraduateResponse createAddGraduateResponse() {
-        return new AddGraduateResponse();
     }
 
     /**
@@ -143,6 +127,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link InviteGraduates }
+     * 
+     */
+    public InviteGraduates createInviteGraduates() {
+        return new InviteGraduates();
+    }
+
+    /**
+     * Create an instance of {@link InviteGraduatesResponse }
+     * 
+     */
+    public InviteGraduatesResponse createInviteGraduatesResponse() {
+        return new InviteGraduatesResponse();
+    }
+
+    /**
      * Create an instance of {@link SetDateOfCerenomy }
      * 
      */
@@ -183,14 +183,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Expected }
-     * 
-     */
-    public Expected createExpected() {
-        return new Expected();
-    }
-
-    /**
      * Create an instance of {@link Timeslot }
      * 
      */
@@ -207,45 +199,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Graduate }
-     * 
-     */
-    public Graduate createGraduate() {
-        return new Graduate();
-    }
-
-    /**
-     * Create an instance of {@link Guest }
-     * 
-     */
-    public Guest createGuest() {
-        return new Guest();
-    }
-
-    /**
      * Create an instance of {@link Planning.Timeslots.Entry }
      * 
      */
     public Planning.Timeslots.Entry createPlanningTimeslotsEntry() {
         return new Planning.Timeslots.Entry();
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddGraduate }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "addGraduate")
-    public JAXBElement<AddGraduate> createAddGraduate(AddGraduate value) {
-        return new JAXBElement<AddGraduate>(_AddGraduate_QNAME, AddGraduate.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddGraduateResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "addGraduateResponse")
-    public JAXBElement<AddGraduateResponse> createAddGraduateResponse(AddGraduateResponse value) {
-        return new JAXBElement<AddGraduateResponse>(_AddGraduateResponse_QNAME, AddGraduateResponse.class, null, value);
     }
 
     /**
@@ -318,6 +276,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getPlanningResponse")
     public JAXBElement<GetPlanningResponse> createGetPlanningResponse(GetPlanningResponse value) {
         return new JAXBElement<GetPlanningResponse>(_GetPlanningResponse_QNAME, GetPlanningResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InviteGraduates }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteGraduates")
+    public JAXBElement<InviteGraduates> createInviteGraduates(InviteGraduates value) {
+        return new JAXBElement<InviteGraduates>(_InviteGraduates_QNAME, InviteGraduates.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InviteGraduatesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteGraduatesResponse")
+    public JAXBElement<InviteGraduatesResponse> createInviteGraduatesResponse(InviteGraduatesResponse value) {
+        return new JAXBElement<InviteGraduatesResponse>(_InviteGraduatesResponse_QNAME, InviteGraduatesResponse.class, null, value);
     }
 
     /**

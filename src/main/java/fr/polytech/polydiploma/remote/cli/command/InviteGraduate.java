@@ -2,9 +2,6 @@ package fr.polytech.polydiploma.remote.cli.command;
 
 import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.framework.Command;
-import fr.polytech.polydiploma.remote.stubs.Graduate;
-
-import java.util.List;
 
 public class InviteGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
 
@@ -15,7 +12,7 @@ public class InviteGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public void execute() throws Exception {
-//        shell.system.organisation.addGraduate(graduate);
+        shell.system.organisation.inviteGraduates();
     }
 
 

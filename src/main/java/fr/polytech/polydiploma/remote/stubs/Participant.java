@@ -35,8 +35,7 @@ import javax.xml.bind.annotation.XmlType;
     "lastname"
 })
 @XmlSeeAlso({
-    Expected.class,
-    Guest.class
+    Speaker.class
 })
 public abstract class Participant {
 

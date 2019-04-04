@@ -1,8 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OrganisationWebServiceImplService" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
-            <xs:element name="addGraduate" type="tns:addGraduate"/>
-            <xs:element name="addGraduateResponse" type="tns:addGraduateResponse"/>
             <xs:element name="addSpeaker" type="tns:addSpeaker"/>
             <xs:element name="addSpeakerResponse" type="tns:addSpeakerResponse"/>
             <xs:element name="getDeliveryDate" type="tns:getDeliveryDate"/>
@@ -11,6 +9,8 @@
             <xs:element name="getParticipantListResponse" type="tns:getParticipantListResponse"/>
             <xs:element name="getPlanning" type="tns:getPlanning"/>
             <xs:element name="getPlanningResponse" type="tns:getPlanningResponse"/>
+            <xs:element name="inviteGraduates" type="tns:inviteGraduates"/>
+            <xs:element name="inviteGraduatesResponse" type="tns:inviteGraduatesResponse"/>
             <xs:element name="setDateOfCerenomy" type="tns:setDateOfCerenomy"/>
             <xs:element name="setDateOfCerenomyResponse" type="tns:setDateOfCerenomyResponse"/>
             <xs:complexType name="addSpeaker">
@@ -20,13 +20,6 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="speaker">
-                <xs:complexContent>
-                    <xs:extension base="tns:expected">
-                        <xs:sequence/>
-                    </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-            <xs:complexType name="expected">
                 <xs:complexContent>
                     <xs:extension base="tns:participant">
                         <xs:sequence>
@@ -79,32 +72,10 @@
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="participant_list" type="tns:participant"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:complexType name="addGraduate">
-                <xs:sequence>
-                    <xs:element minOccurs="0" name="graduate" type="tns:graduate"/>
-                </xs:sequence>
+            <xs:complexType name="inviteGraduates">
+                <xs:sequence/>
             </xs:complexType>
-            <xs:complexType name="graduate">
-                <xs:complexContent>
-                    <xs:extension base="tns:expected">
-                        <xs:sequence>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="distinctions" nillable="true" type="tns:distinction"/>
-                            <xs:element minOccurs="0" name="field" type="tns:field"/>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="guests" nillable="true" type="tns:guest"/>
-                        </xs:sequence>
-                    </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-            <xs:complexType name="guest">
-                <xs:complexContent>
-                    <xs:extension base="tns:participant">
-                        <xs:sequence>
-                            <xs:element name="payingGuest" type="xs:boolean"/>
-                        </xs:sequence>
-                    </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-            <xs:complexType name="addGraduateResponse">
+            <xs:complexType name="inviteGraduatesResponse">
                 <xs:sequence/>
             </xs:complexType>
             <xs:complexType name="getPlanning">
@@ -125,7 +96,7 @@
                                 <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element minOccurs="0" name="key" type="tns:expected"/>
+                                            <xs:element minOccurs="0" name="key" type="tns:speaker"/>
                                             <xs:element minOccurs="0" name="value" type="tns:timeslot"/>
                                         </xs:sequence>
                                     </xs:complexType>
@@ -144,24 +115,6 @@
             <xs:complexType name="setDateOfCerenomyResponse">
                 <xs:sequence/>
             </xs:complexType>
-            <xs:simpleType name="distinction">
-                <xs:restriction base="xs:string">
-                    <xs:enumeration value="MAJOR"/>
-                    <xs:enumeration value="HONOR"/>
-                    <xs:enumeration value="HODOR"/>
-                    <xs:enumeration value="HARRY"/>
-                </xs:restriction>
-            </xs:simpleType>
-            <xs:simpleType name="field">
-                <xs:restriction base="xs:string">
-                    <xs:enumeration value="SI"/>
-                    <xs:enumeration value="MAM"/>
-                    <xs:enumeration value="GB"/>
-                    <xs:enumeration value="ITII"/>
-                    <xs:enumeration value="GE"/>
-                    <xs:enumeration value="ELEC"/>
-                </xs:restriction>
-            </xs:simpleType>
             <xs:element name="ExternalPartnerException" type="tns:ExternalPartnerException"/>
             <xs:complexType name="ExternalPartnerException">
                 <xs:sequence>
@@ -192,8 +145,8 @@
         <wsdl:part element="tns:ExternalPartnerException" name="ExternalPartnerException">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="addGraduate">
-        <wsdl:part element="tns:addGraduate" name="parameters">
+    <wsdl:message name="inviteGraduatesResponse">
+        <wsdl:part element="tns:inviteGraduatesResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="setDateOfCerenomy">
@@ -224,8 +177,8 @@
         <wsdl:part element="tns:getParticipantList" name="parameters">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="addGraduateResponse">
-        <wsdl:part element="tns:addGraduateResponse" name="parameters">
+    <wsdl:message name="inviteGraduates">
+        <wsdl:part element="tns:inviteGraduates" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="getPlanning">
@@ -257,10 +210,10 @@
             <wsdl:output message="tns:getParticipantListResponse" name="getParticipantListResponse">
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="addGraduate">
-            <wsdl:input message="tns:addGraduate" name="addGraduate">
+        <wsdl:operation name="inviteGraduates">
+            <wsdl:input message="tns:inviteGraduates" name="inviteGraduates">
             </wsdl:input>
-            <wsdl:output message="tns:addGraduateResponse" name="addGraduateResponse">
+            <wsdl:output message="tns:inviteGraduatesResponse" name="inviteGraduatesResponse">
             </wsdl:output>
             <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
             </wsdl:fault>
@@ -316,12 +269,12 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="addGraduate">
+        <wsdl:operation name="inviteGraduates">
             <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="addGraduate">
+            <wsdl:input name="inviteGraduates">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="addGraduateResponse">
+            <wsdl:output name="inviteGraduatesResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
             <wsdl:fault name="ExternalPartnerException">

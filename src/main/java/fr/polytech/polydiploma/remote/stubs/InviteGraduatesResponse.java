@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for addGraduateResponse complex type.
+ * <p>Java class for inviteGraduatesResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="addGraduateResponse"&gt;
+ * &lt;complexType name="inviteGraduatesResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "addGraduateResponse")
-public class AddGraduateResponse {
+@XmlType(name = "inviteGraduatesResponse")
+public class InviteGraduatesResponse {
 
 
 }
