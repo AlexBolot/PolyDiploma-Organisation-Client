@@ -1,5 +1,7 @@
 package fr.polytech.polydiploma;
 
+import fr.polytech.polydiploma.component.PlanCeremonyBean;
+import fr.polytech.polydiploma.component.SuperviseParticipantBean;
 import fr.polytech.polydiploma.entities.Participant;
 import fr.polytech.polydiploma.entities.Speaker;
 import fr.polytech.polydiploma.entities.Timeslot;
@@ -17,8 +19,10 @@ import java.util.logging.Logger;
 @SessionScoped
 public class ParticipantBean {
 
-    @EJB private transient ManageParticipants manageParticipants;
-    @EJB private transient PlanningUpdater planningUpdater;
+    @EJB
+    private transient ManageParticipants manageParticipants;
+    @EJB
+    private transient PlanningUpdater planningUpdater;
 
     private static final Logger log = Logger.getLogger(GraduateBean.class.getName());
 
@@ -28,20 +32,48 @@ public class ParticipantBean {
     private String email;
     private String timeslotId;
 
-    public String getFirstName() { return firstname; }
-    public void setFirstName(String firstname) { this.firstname = firstname; }
+    public ManageParticipants getManageParticipants() {
+        return this.manageParticipants;
+    }
 
-    public String getLastName() { return lastname; }
-    public void setLastName(String lastname) { this.lastname = lastname; }
+    public PlanningUpdater getPlanningUpdater() {
+        return this.planningUpdater;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getFirstName() {
+        return firstname;
+    }
 
-    public String getTimeslotId() { return timeslotId; }
-    public void setTimeslotId(String timeslotId) { this.timeslotId = timeslotId; }
+    public void setFirstName(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastName() {
+        return lastname;
+    }
+
+    public void setLastName(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTimeslotId() {
+        return timeslotId;
+    }
+
+    public void setTimeslotId(String timeslotId) {
+        this.timeslotId = timeslotId;
+    }
 
     public String validate() {
-        Timeslot timeslot = new Timeslot(4,20,5,0);
+        Timeslot timeslot = new Timeslot(4, 20, 5, 0);
         Speaker speaker = new Speaker(getFirstName(), getLastName(), getEmail());
         speaker.setId(5L);
 
@@ -67,6 +99,11 @@ public class ParticipantBean {
                 .addMessage("form-success",
                         new FacesMessage(manageParticipants.requireParticipants().toString()));
         return "Heyheyhey";
+    }
+
+    public void init() {
+        manageParticipants = new SuperviseParticipantBean();
+        planningUpdater = new PlanCeremonyBean();
     }
 
     @PostConstruct
