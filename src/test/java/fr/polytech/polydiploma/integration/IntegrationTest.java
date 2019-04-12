@@ -4,25 +4,28 @@ import fr.polytech.polydiploma.GraduateBean;
 import fr.polytech.polydiploma.ManageParticipants;
 import fr.polytech.polydiploma.ParticipantBean;
 import fr.polytech.polydiploma.PlanningUpdater;
+import fr.polytech.polydiploma.arquillian.AbstractArquillianTest;
 import fr.polytech.polydiploma.entities.Speaker;
 import fr.polytech.polydiploma.entities.Timeslot;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
 import fr.polytech.polydiploma.exceptions.TimeslotOverlapException;
 import fr.polytech.polydiploma.utils.MailAPI;
+import org.jboss.arquillian.junit.Arquillian;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.runner.RunWith;
 
 import javax.ejb.EJB;
 
 import static junit.framework.TestCase.assertTrue;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class IntegrationTest {
+@RunWith(Arquillian.class)
+public class IntegrationTest extends AbstractArquillianTest {
     public ParticipantBean participantBean = new ParticipantBean();
     public GraduateBean graduateBean = new GraduateBean();
     public MailAPI mockAPI = new MailAPI();
