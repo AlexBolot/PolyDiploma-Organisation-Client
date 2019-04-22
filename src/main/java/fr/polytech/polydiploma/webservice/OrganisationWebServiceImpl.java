@@ -15,9 +15,7 @@ import java.util.logging.Logger;
 @Stateless(name = "OrganisationWS")
 public class OrganisationWebServiceImpl implements OrganisationWebService {
 
-
     private static final Logger log = Logger.getLogger(OrganisationWebServiceImpl.class.getName());
-
 
     @EJB private transient ManageParticipants manageParticipants;
     @EJB private transient PlanningUpdater planningUpdater;
@@ -27,6 +25,11 @@ public class OrganisationWebServiceImpl implements OrganisationWebService {
     public void addSpeaker(Speaker speaker, Timeslot timeslot) throws ExternalPartnerException, TimeslotOverlapException {
         planningUpdater.addTimeslot(timeslot, speaker);
         manageParticipants.inviteSpeaker(speaker);
+    }
+
+    @Override
+    public void setFieldTimeslot(Field field, Timeslot timeslot) throws TimeslotOverlapException {
+        planningUpdater.addFieldTimeslot(timeslot, field);
     }
 
     @Override

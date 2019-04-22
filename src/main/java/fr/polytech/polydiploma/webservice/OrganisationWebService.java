@@ -1,10 +1,6 @@
 package fr.polytech.polydiploma.webservice;
 
-import fr.polytech.polydiploma.entities.Participant;
-import fr.polytech.polydiploma.entities.Speaker;
-import fr.polytech.polydiploma.entities.Date;
-import fr.polytech.polydiploma.entities.Planning;
-import fr.polytech.polydiploma.entities.Timeslot;
+import fr.polytech.polydiploma.entities.*;
 import fr.polytech.polydiploma.exceptions.ExternalPartnerException;
 import fr.polytech.polydiploma.exceptions.TimeslotOverlapException;
 
@@ -18,7 +14,7 @@ import java.util.List;
 public interface OrganisationWebService {
 
     @WebMethod
-//    @Interceptors({ExpectedVerifier.class})
+    //@Interceptors({ExpectedVerifier.class})
     void addSpeaker(@WebParam(name = "speaker") Speaker speaker,
                     @WebParam(name = "timeslot") Timeslot timeslot) throws ExternalPartnerException, TimeslotOverlapException;
 
@@ -26,7 +22,10 @@ public interface OrganisationWebService {
     void inviteGraduates() throws ExternalPartnerException;
 
     @WebMethod
-//    @Interceptors({ExpectedVerifier.class})
+    void setFieldTimeslot(Field field, Timeslot timeslot) throws TimeslotOverlapException;
+
+    @WebMethod
+    //@Interceptors({ExpectedVerifier.class})
     void setDateOfCerenomy(@WebParam(name = "date") Date date,
                      @WebParam(name = "timeslot") Timeslot timeslot);
 
