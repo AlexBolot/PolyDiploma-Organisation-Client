@@ -3,6 +3,7 @@ package fr.polytech.polydiploma.features;
 import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.runtime.arquillian.ArquillianCucumber;
 import cucumber.runtime.arquillian.testng.CukeSpace;
 import fr.polytech.polydiploma.GraduateBean;
 import fr.polytech.polydiploma.ManageParticipants;
@@ -16,7 +17,7 @@ import javax.ejb.EJB;
 
 import static org.junit.Assert.assertFalse;
 
-//@RunWith(CukeSpace.class)
+@RunWith(ArquillianCucumber.class)
 @CucumberOptions(features = "src/test/resources")
 public class InviteGraduates extends AbstractArquillianTest {
 

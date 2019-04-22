@@ -51,7 +51,7 @@ public class IntegrationTest extends AbstractArquillianTest {
         assertTrue(participantBean.getPlanningUpdater().getPlanning().getTimeslots().isEmpty());
         Timeslot timeslot = new Timeslot(4, 20, 5, 0);
         Speaker speaker = new Speaker(participantBean.getFirstName(), participantBean.getLastName(), participantBean.getEmail());
-        speaker.setId(5L);
+        speaker.setId(5);
         participantBean.getManageParticipants().inviteSpeaker(speaker);
         participantBean.getPlanningUpdater().usingAPI(mockAPI);
         try {

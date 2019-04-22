@@ -75,7 +75,7 @@ public class ParticipantBean {
     public String validate() {
         Timeslot timeslot = new Timeslot(4, 20, 5, 0);
         Speaker speaker = new Speaker(getFirstName(), getLastName(), getEmail());
-        speaker.setId(5L);
+        speaker.setId(5);
 
         manageParticipants.inviteSpeaker(speaker);
 
