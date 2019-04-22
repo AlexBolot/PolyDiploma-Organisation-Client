@@ -1,0 +1,308 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OrganisationWebServiceImplService" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
+            <xs:element name="addSpeaker" type="tns:addSpeaker"/>
+            <xs:element name="addSpeakerResponse" type="tns:addSpeakerResponse"/>
+            <xs:element name="getDeliveryDate" type="tns:getDeliveryDate"/>
+            <xs:element name="getDeliveryDateResponse" type="tns:getDeliveryDateResponse"/>
+            <xs:element name="getParticipantList" type="tns:getParticipantList"/>
+            <xs:element name="getParticipantListResponse" type="tns:getParticipantListResponse"/>
+            <xs:element name="getPlanning" type="tns:getPlanning"/>
+            <xs:element name="getPlanningResponse" type="tns:getPlanningResponse"/>
+            <xs:element name="inviteGraduates" type="tns:inviteGraduates"/>
+            <xs:element name="inviteGraduatesResponse" type="tns:inviteGraduatesResponse"/>
+            <xs:element name="setDateOfCerenomy" type="tns:setDateOfCerenomy"/>
+            <xs:element name="setDateOfCerenomyResponse" type="tns:setDateOfCerenomyResponse"/>
+            <xs:complexType name="addSpeaker">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="speaker" type="tns:speaker"/>
+                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="speaker">
+                <xs:complexContent>
+                    <xs:extension base="tns:participant">
+                        <xs:sequence>
+                            <xs:element name="isAttending" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="mail" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
+            <xs:complexType abstract="true" name="participant">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="firstname" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" type="xs:long"/>
+                    <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="timeslot">
+                <xs:sequence>
+                    <xs:element name="endingHour" type="xs:int"/>
+                    <xs:element name="endingMinute" type="xs:int"/>
+                    <xs:element name="id" type="xs:int"/>
+                    <xs:element name="startingHour" type="xs:int"/>
+                    <xs:element name="startingMinute" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="addSpeakerResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getDeliveryDate">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getDeliveryDateResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="delivery_date" type="tns:date"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="date">
+                <xs:sequence>
+                    <xs:element name="day" type="xs:int"/>
+                    <xs:element name="id" type="xs:int"/>
+                    <xs:element name="month" type="xs:int"/>
+                    <xs:element name="year" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="getParticipantList">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getParticipantListResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="participant_list" type="tns:participant"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="inviteGraduates">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="inviteGraduatesResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getPlanning">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getPlanningResponse">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="planning" type="tns:planning"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="planning">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="dateOfCeremony" type="tns:date"/>
+                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
+                    <xs:element name="timeslots">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="tns:speaker"/>
+                                            <xs:element minOccurs="0" name="value" type="tns:timeslot"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="setDateOfCerenomy">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="date" type="tns:date"/>
+                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="setDateOfCerenomyResponse">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:element name="ExternalPartnerException" type="tns:ExternalPartnerException"/>
+            <xs:complexType name="ExternalPartnerException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="TimeslotOverlapException" type="tns:TimeslotOverlapException"/>
+            <xs:complexType name="TimeslotOverlapException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="getPlanningResponse">
+        <wsdl:part element="tns:getPlanningResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="setDateOfCerenomyResponse">
+        <wsdl:part element="tns:setDateOfCerenomyResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDeliveryDate">
+        <wsdl:part element="tns:getDeliveryDate" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ExternalPartnerException">
+        <wsdl:part element="tns:ExternalPartnerException" name="ExternalPartnerException">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="inviteGraduatesResponse">
+        <wsdl:part element="tns:inviteGraduatesResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="setDateOfCerenomy">
+        <wsdl:part element="tns:setDateOfCerenomy" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="TimeslotOverlapException">
+        <wsdl:part element="tns:TimeslotOverlapException" name="TimeslotOverlapException">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addSpeaker">
+        <wsdl:part element="tns:addSpeaker" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addSpeakerResponse">
+        <wsdl:part element="tns:addSpeakerResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getDeliveryDateResponse">
+        <wsdl:part element="tns:getDeliveryDateResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getParticipantListResponse">
+        <wsdl:part element="tns:getParticipantListResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getParticipantList">
+        <wsdl:part element="tns:getParticipantList" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="inviteGraduates">
+        <wsdl:part element="tns:inviteGraduates" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getPlanning">
+        <wsdl:part element="tns:getPlanning" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="OrganisationWebService">
+        <wsdl:operation name="addSpeaker">
+            <wsdl:input message="tns:addSpeaker" name="addSpeaker">
+            </wsdl:input>
+            <wsdl:output message="tns:addSpeakerResponse" name="addSpeakerResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
+            </wsdl:fault>
+            <wsdl:fault message="tns:TimeslotOverlapException" name="TimeslotOverlapException">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDeliveryDate">
+            <wsdl:input message="tns:getDeliveryDate" name="getDeliveryDate">
+            </wsdl:input>
+            <wsdl:output message="tns:getDeliveryDateResponse" name="getDeliveryDateResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getParticipantList">
+            <wsdl:input message="tns:getParticipantList" name="getParticipantList">
+            </wsdl:input>
+            <wsdl:output message="tns:getParticipantListResponse" name="getParticipantListResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inviteGraduates">
+            <wsdl:input message="tns:inviteGraduates" name="inviteGraduates">
+            </wsdl:input>
+            <wsdl:output message="tns:inviteGraduatesResponse" name="inviteGraduatesResponse">
+            </wsdl:output>
+            <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPlanning">
+            <wsdl:input message="tns:getPlanning" name="getPlanning">
+            </wsdl:input>
+            <wsdl:output message="tns:getPlanningResponse" name="getPlanningResponse">
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setDateOfCerenomy">
+            <wsdl:input message="tns:setDateOfCerenomy" name="setDateOfCerenomy">
+            </wsdl:input>
+            <wsdl:output message="tns:setDateOfCerenomyResponse" name="setDateOfCerenomyResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OrganisationWebServiceImplServiceSoapBinding" type="tns:OrganisationWebService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addSpeaker">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="addSpeaker">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addSpeakerResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExternalPartnerException">
+                <soap:fault name="ExternalPartnerException" use="literal"/>
+            </wsdl:fault>
+            <wsdl:fault name="TimeslotOverlapException">
+                <soap:fault name="TimeslotOverlapException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getDeliveryDate">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getDeliveryDate">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getDeliveryDateResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExternalPartnerException">
+                <soap:fault name="ExternalPartnerException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getParticipantList">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getParticipantList">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getParticipantListResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="inviteGraduates">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="inviteGraduates">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="inviteGraduatesResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ExternalPartnerException">
+                <soap:fault name="ExternalPartnerException" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="getPlanning">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getPlanning">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getPlanningResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="setDateOfCerenomy">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="setDateOfCerenomy">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="setDateOfCerenomyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="OrganisationWebServiceImplService">
+        <wsdl:port binding="tns:OrganisationWebServiceImplServiceSoapBinding" name="OrganisationWebServiceImplPort">
+            <soap:address location="http://localhost:8082/polydiploma-backend/webservices/OrganisationWS"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
