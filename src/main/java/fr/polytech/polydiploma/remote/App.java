@@ -21,7 +21,11 @@ public class App extends Shell<PolydiplomaOrganisationPublicAPI> {
                 ListParticipant.class,
                 SetDateAndHour.class,
                 GetDeliveryDate.class,
-                Play.class
+                Play.class,
+                SetFieldTimeslot.class,
+                GetFields.class,
+                ConfirmSpeakerAttendance.class,
+                SendMailToHost.class
         );
     }
 

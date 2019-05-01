@@ -18,20 +18,27 @@ public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
         try {
             System.out.println("    La cérémoni est prévu pour le " + date.getDay() + "/" + date.getMonth() + "/" + date.getYear()
                     + " de " + planning.getTimeslot().getStartingHour() + "h" + planning.getTimeslot().getStartingMinute() + " a "
-                    + planning.getTimeslot().getEndingHour() + "h" + planning.getTimeslot().getEndingMinute() + ".");
+                    + planning.getTimeslot().getEndingHour() + "h" + planning.getTimeslot().getEndingMinute() + ".\n");
         } catch (NullPointerException e) {
             System.out.println("    La date et l'heure de la cerenomy n'est toujours pas défini\n");
         }
-        if (planning.getTimeslots().getEntry().isEmpty()) {
-            System.out.println("    Il n'y a aucun intervenant avec un horaire");
-        } else {
-            planning.getTimeslots().getEntry().forEach(entry -> {
-                System.out.println("    L'intervenant " + entry.getKey().getFirstname() + " "
-                        + entry.getKey().getLastname() + " passe de "
-                        + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
-                        + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute());
-            });
-        }
+//        if (planning.getTimeslots().getEntry().isEmpty()) {
+//            System.out.println("    Il n'y a aucun intervenant avec un horaire");
+//        } else {
+//            planning.getTimeslots().getEntry().forEach(entry -> System.out.println("    L'intervenant "
+//                    + entry.getKey().getFirstname() + " "
+//                    + entry.getKey().getLastname() + " passe de "
+//                    + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
+//                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
+//        }
+//        if (planning.getFieldsTimeslots().getEntry().isEmpty()) {
+//            System.out.println("    Il n'y a aucune filières avec un horaire");
+//        } else {
+//            planning.getFieldsTimeslots().getEntry().forEach(entry -> System.out.println("    La filière "
+//                    + entry.getKey().value() + " " + " passe de "
+//                    + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
+//                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
+//        }
     }
 
     @Override

@@ -40,7 +40,7 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
             System.err.println("    Erreur : les paramétres doivent être des nombres");;
         }
 
-        shell.system.organisation.setDateOfCerenomy(date, timeslut);
+        shell.system.organisation.setDateOfCeremony(date, timeslut);
     }
 
     @Override

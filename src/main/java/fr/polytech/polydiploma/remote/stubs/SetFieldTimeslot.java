@@ -3,21 +3,21 @@ package fr.polytech.polydiploma.remote.stubs;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for planning complex type.
+ * <p>Java class for setFieldTimeslot complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="planning"&gt;
+ * &lt;complexType name="setFieldTimeslot"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="dateOfCeremony" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}date" minOccurs="0"/&gt;
- *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="field" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}field" minOccurs="0"/&gt;
  *         &lt;element name="timeslot" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}timeslot" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -28,63 +28,38 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "planning", propOrder = {
-    "dateOfCeremony",
-    "name",
+@XmlType(name = "setFieldTimeslot", propOrder = {
+    "field",
     "timeslot"
 })
-public class Planning {
+public class SetFieldTimeslot {
 
-    protected Date dateOfCeremony;
-    protected String name;
+    @XmlSchemaType(name = "string")
+    protected Field field;
     protected Timeslot timeslot;
 
     /**
-     * Gets the value of the dateOfCeremony property.
+     * Gets the value of the field property.
      * 
      * @return
      *     possible object is
-     *     {@link Date }
+     *     {@link Field }
      *     
      */
-    public Date getDateOfCeremony() {
-        return dateOfCeremony;
+    public Field getField() {
+        return field;
     }
 
     /**
-     * Sets the value of the dateOfCeremony property.
+     * Sets the value of the field property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Date }
+     *     {@link Field }
      *     
      */
-    public void setDateOfCeremony(Date value) {
-        this.dateOfCeremony = value;
-    }
-
-    /**
-     * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setName(String value) {
-        this.name = value;
+    public void setField(Field value) {
+        this.field = value;
     }
 
     /**
