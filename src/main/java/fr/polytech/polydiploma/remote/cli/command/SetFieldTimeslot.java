@@ -10,10 +10,10 @@ import java.util.List;
 public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> {
 
     private String fieldString;
-    private String startingHour;
-    private String startingMinute;
-    private String endingHour;
-    private String endingMinute;
+    private int startingHour;
+    private int startingMinute;
+    private int endingHour;
+    private int endingMinute;
 
     @Override
     public String identifier() {
@@ -25,10 +25,10 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
         Field field = Field.valueOf(fieldString);
 
         Timeslot timeslot = new Timeslot();
-        timeslot.setStartingHour(tryParse(startingHour));
-        timeslot.setStartingMinute(tryParse(startingMinute));
-        timeslot.setEndingHour(tryParse(endingHour));
-        timeslot.setEndingMinute(tryParse(endingMinute));
+        timeslot.setStartingHour(startingHour);
+        timeslot.setStartingMinute(startingMinute);
+        timeslot.setEndingHour(endingHour);
+        timeslot.setEndingMinute(endingMinute);
 
         shell.system.organisation.setFieldTimeslot(field, timeslot);
     }
@@ -36,10 +36,10 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
     @Override
     public void load(List<String> args) {
         fieldString = args.get(0);
-        startingHour = args.get(1);
-        startingMinute = args.get(2);
-        endingHour = args.get(3);
-        endingMinute = args.get(4);
+        startingHour = tryParse(args.get(1));
+        startingMinute = tryParse(args.get(2));
+        endingHour = tryParse(args.get(3));
+        endingMinute = tryParse(args.get(4));
     }
 
     @Override

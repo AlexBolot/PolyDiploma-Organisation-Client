@@ -9,13 +9,13 @@ import java.util.List;
 
 public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
 
-    private String startingHour;
-    private String startingMinute;
-    private String endingHour;
-    private String endingMinute;
-    private String day;
-    private String month;
-    private String year;
+    private int startingHour;
+    private int startingMinute;
+    private int endingHour;
+    private int endingMinute;
+    private int day;
+    private int month;
+    private int year;
 
     @Override
     public String identifier() {
@@ -27,27 +27,27 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
         Date date = new Date();
         Timeslot timeslut = new Timeslot();
 
-        date.setDay(tryParse(day));
-        date.setMonth(tryParse(month));
-        date.setYear(tryParse(year));
+        date.setDay(day);
+        date.setMonth(month);
+        date.setYear(year);
 
-        timeslut.setStartingHour(tryParse(startingHour));
-        timeslut.setStartingMinute(tryParse(startingMinute));
-        timeslut.setEndingHour(tryParse(endingHour));
-        timeslut.setEndingMinute(tryParse(endingMinute));
+        timeslut.setStartingHour(startingHour);
+        timeslut.setStartingMinute(startingMinute);
+        timeslut.setEndingHour(endingHour);
+        timeslut.setEndingMinute(endingMinute);
 
         shell.system.organisation.setDateOfCeremony(date, timeslut);
     }
 
     @Override
     public void load(List<String> args) {
-        day = args.get(0);
-        month = args.get(1);
-        year = args.get(2);
-        startingHour = args.get(3);
-        startingMinute = args.get(4);
-        endingHour = args.get(5);
-        endingMinute = args.get(6);
+        day = tryParse(args.get(0));
+        month = tryParse(args.get(1));
+        year = tryParse(args.get(2));
+        startingHour = tryParse(args.get(3));
+        startingMinute = tryParse(args.get(4));
+        endingHour = tryParse(args.get(5));
+        endingMinute = tryParse(args.get(6));
     }
 
     @Override

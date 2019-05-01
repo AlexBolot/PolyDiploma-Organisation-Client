@@ -12,10 +12,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
     private String firstname;
     private String lastname;
     private String mail;
-    private String startingHour;
-    private String startingMinute;
-    private String endingHour;
-    private String endingMinute;
+    private int startingHour;
+    private int startingMinute;
+    private int endingHour;
+    private int endingMinute;
 
     @Override
     public String identifier() {
@@ -30,10 +30,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
         speaker.setMail(mail);
 
         Timeslot timeslot = new Timeslot();
-        timeslot.setStartingHour(tryParse(startingHour));
-        timeslot.setStartingMinute(tryParse(startingMinute));
-        timeslot.setEndingHour(tryParse(endingHour));
-        timeslot.setEndingMinute(tryParse(endingMinute));
+        timeslot.setStartingHour(startingHour);
+        timeslot.setStartingMinute(startingMinute);
+        timeslot.setEndingHour(endingHour);
+        timeslot.setEndingMinute(endingMinute);
 
         shell.system.organisation.addSpeaker(speaker, timeslot);
     }
@@ -43,10 +43,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
         firstname = args.get(0);
         lastname = args.get(1);
         mail = args.get(2);
-        startingHour = args.get(3);
-        startingMinute = args.get(4);
-        endingHour = args.get(5);
-        endingMinute = args.get(6);
+        startingHour = tryParse(args.get(3));
+        startingMinute = tryParse(args.get(4));
+        endingHour = tryParse(args.get(5));
+        endingMinute = tryParse(args.get(6));
     }
 
     @Override
