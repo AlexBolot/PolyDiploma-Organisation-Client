@@ -17,7 +17,6 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="day" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="month" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="year" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
@@ -31,14 +30,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "date", propOrder = {
     "day",
-    "id",
     "month",
     "year"
 })
 public class Date {
 
     protected int day;
-    protected int id;
     protected int month;
     protected int year;
 
@@ -56,22 +53,6 @@ public class Date {
      */
     public void setDay(int value) {
         this.day = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Définit la valeur de la propriété id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
     }
 
     /**

@@ -10,13 +10,13 @@ public class Total extends Command<PolydiplomaOrganisationPublicAPI> {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         int nb = shell.system.organisation.getParticipantList().size();
-        System.out.println("    Il y a " + nb + " de participant" + (nb > 1 ? "s" : ""));
+        log("Il y a " + nb + " participant" + (nb > 1 ? "s" : ""));
     }
 
     @Override
     public String describe() {
-        return "Donne le total de participant";
+        return "Donne le total de participants";
     }
 }

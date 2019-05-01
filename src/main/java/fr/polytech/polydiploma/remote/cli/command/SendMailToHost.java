@@ -11,12 +11,12 @@ public class SendMailToHost extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String identifier() {
-        return "mail";
+        return "reserver_ceremonie";
     }
 
     @Override
     public void execute() throws Exception {
-        //shell.system.organisation.sendMailToHost(hostMail);
+        shell.system.organisation.sendMail(hostMail);
     }
 
     @Override
@@ -26,6 +26,6 @@ public class SendMailToHost extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String describe() {
-        return "Envoie un mail pour reservé la salle et indique le nombre de participants (mail MAIL_DU_PROPRIETAIRE)";
+        return "Envoie un mail pour reserver la salle et indique le nombre de participants (reserver_ceremonie MAIL_DU_PROPRIETAIRE)";
     }
 }

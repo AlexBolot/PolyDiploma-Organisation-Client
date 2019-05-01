@@ -10,23 +10,22 @@ public class ListParticipant extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String identifier() {
-        return "lister";
+        return "liste_participants";
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         List<Participant> participants = shell.system.organisation.getParticipantList();
-        if (participants.isEmpty()) {
-            System.out.println("    Il n'y a pas de participant pour cette remise des diplômes");
-        } else {
-            for (Participant participant : participants) {
-                System.out.println("    " + participant.getFirstname() + " " + participant.getLastname());
-            }
-        }
+
+        if (participants.isEmpty())
+            log("Il n'y a pas de participant pour cette remise des diplômes");
+        else
+            participants.stream().map(participant -> participant.getFirstname() + " " + participant.getLastname()).forEach(this::log);
+
     }
 
     @Override
     public String describe() {
-        return "Donne la liste de tout les participant";
+        return "Donne la liste de tous les participants";
     }
 }

@@ -17,7 +17,7 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
 
     @Override
     public String identifier() {
-        return "timeslotFiliere";
+        return "horaire_filiere";
     }
 
     @Override
@@ -25,10 +25,10 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
         Field field = Field.valueOf(fieldString);
 
         Timeslot timeslot = new Timeslot();
-        timeslot.setStartingHour(Integer.parseInt(startingHour));
-        timeslot.setStartingMinute(Integer.parseInt(startingMinute));
-        timeslot.setEndingHour(Integer.parseInt(endingHour));
-        timeslot.setEndingMinute(Integer.parseInt(endingMinute));
+        timeslot.setStartingHour(tryParse(startingHour));
+        timeslot.setStartingMinute(tryParse(startingMinute));
+        timeslot.setEndingHour(tryParse(endingHour));
+        timeslot.setEndingMinute(tryParse(endingMinute));
 
         shell.system.organisation.setFieldTimeslot(field, timeslot);
     }
@@ -44,6 +44,6 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
 
     @Override
     public String describe() {
-        return "Ajoute un crénaux pour la remise des diplômes d'une fillière (timeslotFiliere FILIERE HEURE_DE_DEBUT MINUTE_DE_DEBUT HEURE_DE_FIN MINUTE_DE_FIN)";
+        return "Ajoute un crénaux pour la remise des diplômes d'une fillière (horaire_filiere FILIERE HEURE_DEBUT MINUTE_DEBUT HEURE_FIN MINUTE_FIN)";
     }
 }

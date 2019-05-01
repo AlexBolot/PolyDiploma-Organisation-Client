@@ -8,9 +8,11 @@ public class Shell<T> {
 
     public T system;
     protected String invite;
+    private Map<String, Class<? extends Command<T>>> commands = new HashMap<>();
+    private static final String HELP_SYMBOL = "help";
 
     public final void run() {
-        System.out.println("Le shell interactif est lancé. " + HELP_SYMBOL + " pour de l'aide.\n");
+        System.out.println("Le shell interactif est lancé. Tapez " + HELP_SYMBOL + " pour de l'aide.\n");
         run(System.in, false, 0);
     }
 
@@ -18,45 +20,48 @@ public class Shell<T> {
         Scanner scanner = new Scanner(stream);
         boolean shouldContinue = true;
 
-        while(shouldContinue) {
+        while (shouldContinue) {
+
             System.out.flush();
-            for(int i = 0; i < indent; i++) { System.out.print(" "); }
+
+            for (int i = 0; i < indent; i++) {
+                System.out.print(" ");
+            }
+
             System.out.print(invite + " > ");
 
-            if(!scanner.hasNext()) { System.out.println("Fin du fichier atteint"); break; }
+            if (!scanner.hasNext()) {
+                System.out.println("Fin du fichier atteint");
+                break;
+            }
 
             String keyword = scanner.next().trim();
 
-            String rawArgs;
-            List<String> args;
+            String rawArgs = "";
+            List<String> args = new LinkedList<>();
 
             if (scanner.hasNextLine()) {
                 rawArgs = scanner.nextLine();
-                args = Arrays.asList(rawArgs.split(" "))
-                        .stream().filter(s -> !s.isEmpty()).collect(Collectors.toList());
-            } else { rawArgs = ""; args = new LinkedList<>(); }
-
-            if(shouldEcho) {
-                System.out.println(keyword + " " + rawArgs);
+                args = Arrays.stream(rawArgs.split(" ")).filter(s -> !s.isEmpty()).collect(Collectors.toList());
             }
+
+            if (shouldEcho) System.out.println(keyword + " " + rawArgs);
+
             if (keyword.equals(HELP_SYMBOL)) {
                 help();
             } else {
                 try {
-                    if (keyword.startsWith("#") || keyword.equals(""))
-                        shouldContinue = true;
-                    else
+                    if (!keyword.isEmpty() && !keyword.startsWith("#"))
                         shouldContinue = processCommand(keyword, args);
-                }
-                catch (IllegalArgumentException iae) {
-                    System.err.println("Mauvais paramétres pour la commande "+keyword+": " + args);
+
+                } catch (IllegalArgumentException iae) {
+                    System.err.println("Mauvais paramétres pour la commande " + keyword + ": " + args);
                 } catch (Exception e) {
                     System.err.println("Exception caught while processing command:\n  " + e);
                 }
             }
         }
     }
-
 
     private boolean processCommand(String keyword, List<String> args) throws Exception {
         if (!commands.containsKey(keyword)) {
@@ -70,20 +75,16 @@ public class Shell<T> {
             inst.withShell(this);
             return inst.process(args);
 
-        } catch(InstantiationException|IllegalAccessException e) {
+        } catch (InstantiationException | IllegalAccessException e) {
             System.err.println("Impossible d'éxecuter la commande " + command.toString());
             e.printStackTrace();
             return true;
         }
     }
 
-    private Map<String, Class<? extends Command<T>>> commands = new HashMap<>();
-
     @SafeVarargs
     public final void register(Class<? extends Command<T>>... commands) {
-        for(Class<? extends Command<T>> c: commands) {
-            registerCommand(c);
-        }
+        Arrays.stream(commands).forEach(this::registerCommand);
     }
 
 
@@ -97,24 +98,36 @@ public class Shell<T> {
             if (identifier.contains(" "))
                 throw new IllegalArgumentException("Les identificateur ne peuvent pas contenir d'espace");
             commands.put(identifier, command);
-        } catch(InstantiationException|IllegalAccessException|IllegalArgumentException e) {
+        } catch (InstantiationException | IllegalAccessException | IllegalArgumentException e) {
             System.err.println("Impossible d'enregistrer la commande " + command.toString());
             e.printStackTrace();
         }
     }
 
-    private static final String HELP_SYMBOL = "?";
-
     private void help() {
-        List<Class<? extends Command>> avail = new ArrayList<>(instructions());
-        Collections.sort(avail, (o1, o2) -> { return o1.getCanonicalName().compareTo(o2.getCanonicalName()); });
-        for(Class<? extends Command> c:  avail) {
+        List<Class<? extends Command>> commands = new ArrayList<>(instructions());
+
+        commands.sort((class1, class2) -> {
+
+            try {
+                Command c1 = class1.newInstance();
+                Command c2 = class2.newInstance();
+
+                return c1.identifier().compareToIgnoreCase(c2.identifier());
+
+            } catch (InstantiationException | IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            return 0;
+        });
+
+        for (Class<? extends Command> c : commands) {
             try {
                 Command instance = c.newInstance();
-                System.out.println("  - " + instance.identifier()+": " + instance.describe());
-            }
-            catch(InstantiationException|IllegalAccessException e) {
-                System.err.println("Impossible d'afficher de l'aide pour la commande enregistrer " + c);
+                System.out.println("  - " + instance.identifier() + " : " + instance.describe());
+            } catch (InstantiationException | IllegalAccessException e) {
+                System.err.println("Impossible d'afficher de l'aide pour la commande : " + c);
                 e.printStackTrace();
             }
         }

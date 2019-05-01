@@ -7,14 +7,13 @@ public class InviteGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String identifier() {
-        return "etudiant";
+        return "inviter_etudiants";
     }
 
     @Override
     public void execute() throws Exception {
         shell.system.organisation.inviteGraduates();
     }
-
 
     @Override
     public String describe() {

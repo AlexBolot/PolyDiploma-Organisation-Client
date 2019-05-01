@@ -7,13 +7,16 @@ import fr.polytech.polydiploma.remote.stubs.Date;
 public class GetDeliveryDate extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
     public String identifier() {
-        return "livraison";
+        return "livraison_diplomes";
     }
 
     @Override
     public void execute() throws Exception {
         Date date = shell.system.organisation.getDeliveryDate();
-        System.out.println("    La date de livraison des diplômes est le " + date.getDay() + "/" + date.getMonth() + "/" + date.getYear() + ".");
+
+        String dateString = date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+
+        log("La date de livraison des diplômes est le " + dateString);
     }
 
     @Override

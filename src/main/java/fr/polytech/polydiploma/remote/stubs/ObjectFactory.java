@@ -38,6 +38,8 @@ public class ObjectFactory {
     private final static QName _GetPlanningResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanningResponse");
     private final static QName _InviteGraduates_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduates");
     private final static QName _InviteGraduatesResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduatesResponse");
+    private final static QName _SendMail_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "sendMail");
+    private final static QName _SendMailResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "sendMailResponse");
     private final static QName _SetDateOfCeremony_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCeremony");
     private final static QName _SetDateOfCeremonyResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCeremonyResponse");
     private final static QName _SetFieldTimeslot_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setFieldTimeslot");
@@ -50,30 +52,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link Planning }
-     * 
-     */
-    public Planning createPlanning() {
-        return new Planning();
-    }
-
-    /**
-     * Create an instance of {@link Planning.Timeslots }
-     * 
-     */
-    public Planning.Timeslots createPlanningTimeslots() {
-        return new Planning.Timeslots();
-    }
-
-    /**
-     * Create an instance of {@link Planning.FieldsTimeslots }
-     * 
-     */
-    public Planning.FieldsTimeslots createPlanningFieldsTimeslots() {
-        return new Planning.FieldsTimeslots();
     }
 
     /**
@@ -189,6 +167,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SendMail }
+     * 
+     */
+    public SendMail createSendMail() {
+        return new SendMail();
+    }
+
+    /**
+     * Create an instance of {@link SendMailResponse }
+     * 
+     */
+    public SendMailResponse createSendMailResponse() {
+        return new SendMailResponse();
+    }
+
+    /**
      * Create an instance of {@link SetDateOfCeremony }
      * 
      */
@@ -261,19 +255,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Planning.Timeslots.Entry }
+     * Create an instance of {@link Planning }
      * 
      */
-    public Planning.Timeslots.Entry createPlanningTimeslotsEntry() {
-        return new Planning.Timeslots.Entry();
-    }
-
-    /**
-     * Create an instance of {@link Planning.FieldsTimeslots.Entry }
-     * 
-     */
-    public Planning.FieldsTimeslots.Entry createPlanningFieldsTimeslotsEntry() {
-        return new Planning.FieldsTimeslots.Entry();
+    public Planning createPlanning() {
+        return new Planning();
     }
 
     /**
@@ -400,6 +386,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteGraduatesResponse")
     public JAXBElement<InviteGraduatesResponse> createInviteGraduatesResponse(InviteGraduatesResponse value) {
         return new JAXBElement<InviteGraduatesResponse>(_InviteGraduatesResponse_QNAME, InviteGraduatesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendMail }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "sendMail")
+    public JAXBElement<SendMail> createSendMail(SendMail value) {
+        return new JAXBElement<SendMail>(_SendMail_QNAME, SendMail.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SendMailResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "sendMailResponse")
+    public JAXBElement<SendMailResponse> createSendMailResponse(SendMailResponse value) {
+        return new JAXBElement<SendMailResponse>(_SendMailResponse_QNAME, SendMailResponse.class, null, value);
     }
 
     /**

@@ -10,15 +10,13 @@ public class GetFields extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String identifier() {
-        return "filieres";
+        return "liste_filieres";
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         List<Field> fields = shell.system.organisation.getFields();
-        for (Field f : fields) {
-            System.out.println("    " + f.value());
-        }
+        fields.stream().map(Field::value).forEach(this::log);
     }
 
     @Override

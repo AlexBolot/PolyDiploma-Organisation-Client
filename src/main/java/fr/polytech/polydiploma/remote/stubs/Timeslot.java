@@ -18,7 +18,6 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="endingHour" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="endingMinute" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="startingHour" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="startingMinute" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
@@ -33,7 +32,6 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "timeslot", propOrder = {
     "endingHour",
     "endingMinute",
-    "id",
     "startingHour",
     "startingMinute"
 })
@@ -41,7 +39,6 @@ public class Timeslot {
 
     protected int endingHour;
     protected int endingMinute;
-    protected int id;
     protected int startingHour;
     protected int startingMinute;
 
@@ -75,22 +72,6 @@ public class Timeslot {
      */
     public void setEndingMinute(int value) {
         this.endingMinute = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété id.
-     * 
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Définit la valeur de la propriété id.
-     * 
-     */
-    public void setId(int value) {
-        this.id = value;
     }
 
     /**

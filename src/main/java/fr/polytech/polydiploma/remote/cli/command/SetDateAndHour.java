@@ -19,26 +19,22 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String identifier() {
-        return "date";
+        return "definir_date";
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         Date date = new Date();
         Timeslot timeslut = new Timeslot();
 
-        try {
-            date.setDay(Integer.parseInt(day));
-            date.setMonth(Integer.parseInt(month));
-            date.setYear(Integer.parseInt(year));
+        date.setDay(tryParse(day));
+        date.setMonth(tryParse(month));
+        date.setYear(tryParse(year));
 
-            timeslut.setStartingHour(Integer.parseInt(startingHour));
-            timeslut.setStartingMinute(Integer.parseInt(startingMinute));
-            timeslut.setEndingHour(Integer.parseInt(endingHour));
-            timeslut.setEndingMinute(Integer.parseInt(endingMinute));
-        } catch (NumberFormatException e) {
-            System.err.println("    Erreur : les paramétres doivent être des nombres");;
-        }
+        timeslut.setStartingHour(tryParse(startingHour));
+        timeslut.setStartingMinute(tryParse(startingMinute));
+        timeslut.setEndingHour(tryParse(endingHour));
+        timeslut.setEndingMinute(tryParse(endingMinute));
 
         shell.system.organisation.setDateOfCeremony(date, timeslut);
     }
@@ -56,6 +52,6 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String describe() {
-        return "Definir une date and les horaires de la cerenomy (date JOUR MOIS ANNEE HEURE_DE_DEBUT MINUTE_DE_DEBUT HEURE_DE_FIN MINUTE_DE_FIN)";
+        return "Définir une date et les horaires de la cérémonie (definir_date JOUR MOIS ANNEE HEURE_DEBUT MINUTE_DEBUT HEURE_FIN MINUTE_FIN)";
     }
 }

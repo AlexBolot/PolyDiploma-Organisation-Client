@@ -14,11 +14,11 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
 
     @Override
     public String identifier() {
-        return "confirmer";
+        return "confirmer_presence";
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() {
         Speaker speaker = new Speaker();
         speaker.setFirstname(firstname);
         speaker.setLastname(lastname);
@@ -36,6 +36,6 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
 
     @Override
     public String describe() {
-        return "Confirme la présence d'un vip a la cérémonie (confirmer PRENOM NOM MAIL)";
+        return "Confirme la présence d'un vip à la cérémonie (confirmer_presence PRENOM NOM MAIL)";
     }
 }

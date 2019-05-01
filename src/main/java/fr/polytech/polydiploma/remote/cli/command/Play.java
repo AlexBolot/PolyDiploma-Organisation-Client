@@ -13,7 +13,9 @@ public class Play extends Command<PolydiplomaOrganisationPublicAPI> {
     private String fileName;
 
     @Override
-    public String identifier() { return "play"; }
+    public String identifier() {
+        return "play";
+    }
 
     @Override
     public void execute() throws Exception {
@@ -22,7 +24,9 @@ public class Play extends Command<PolydiplomaOrganisationPublicAPI> {
     }
 
     @Override
-    public void load(List<String> args) { fileName = args.get(0); }
+    public void load(List<String> args) {
+        fileName = args.get(0);
+    }
 
     @Override
     public String describe() {

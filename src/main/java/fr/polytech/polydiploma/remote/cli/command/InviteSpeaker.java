@@ -8,7 +8,7 @@ import fr.polytech.polydiploma.remote.stubs.Timeslot;
 import java.util.List;
 
 public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
-    
+
     private String firstname;
     private String lastname;
     private String mail;
@@ -16,10 +16,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
     private String startingMinute;
     private String endingHour;
     private String endingMinute;
-    
+
     @Override
     public String identifier() {
-        return "vip";
+        return "inviter_VIP";
     }
 
     @Override
@@ -30,10 +30,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
         speaker.setMail(mail);
 
         Timeslot timeslot = new Timeslot();
-        timeslot.setStartingHour(Integer.parseInt(startingHour));
-        timeslot.setStartingMinute(Integer.parseInt(startingMinute));
-        timeslot.setEndingHour(Integer.parseInt(endingHour));
-        timeslot.setEndingMinute(Integer.parseInt(endingMinute));
+        timeslot.setStartingHour(tryParse(startingHour));
+        timeslot.setStartingMinute(tryParse(startingMinute));
+        timeslot.setEndingHour(tryParse(endingHour));
+        timeslot.setEndingMinute(tryParse(endingMinute));
 
         shell.system.organisation.addSpeaker(speaker, timeslot);
     }
@@ -51,6 +51,6 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public String describe() {
-        return "Invite un intervenant VIP (vip PRENOM NOM EMAIL HEURE_DE_DEBUT MINUTE_DE_DEBUT HEURE_DE_FIN MINUTE_DE_FIN)";
+        return "Invite un intervenant VIP (inviter_VIP PRENOM NOM EMAIL HEURE_DEBUT MINUTE_DEBUT HEURE_FIN MINUTE_FIN)";
     }
 }
