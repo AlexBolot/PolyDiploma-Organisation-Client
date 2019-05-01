@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getDeliveryDateResponse complex type.
+ * <p>Classe Java pour getDeliveryDateResponse complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="getDeliveryDateResponse"&gt;
@@ -36,7 +36,7 @@ public class GetDeliveryDateResponse {
     protected Date deliveryDate;
 
     /**
-     * Gets the value of the deliveryDate property.
+     * Obtient la valeur de la propriété deliveryDate.
      * 
      * @return
      *     possible object is
@@ -48,7 +48,7 @@ public class GetDeliveryDateResponse {
     }
 
     /**
-     * Sets the value of the deliveryDate property.
+     * Définit la valeur de la propriété deliveryDate.
      * 
      * @param value
      *     allowed object is

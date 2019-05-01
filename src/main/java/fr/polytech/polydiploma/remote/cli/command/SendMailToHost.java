@@ -16,7 +16,7 @@ public class SendMailToHost extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public void execute() throws Exception {
-        shell.system.organisation.sendMailToHost(hostMail);
+        //shell.system.organisation.sendMailToHost(hostMail);
     }
 
     @Override

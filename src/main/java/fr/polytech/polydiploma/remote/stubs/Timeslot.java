@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for timeslot complex type.
+ * <p>Classe Java pour timeslot complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="timeslot"&gt;
@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="endingHour" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="endingMinute" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="startingHour" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="startingMinute" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *       &lt;/sequence&gt;
@@ -32,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "timeslot", propOrder = {
     "endingHour",
     "endingMinute",
+    "id",
     "startingHour",
     "startingMinute"
 })
@@ -39,11 +41,12 @@ public class Timeslot {
 
     protected int endingHour;
     protected int endingMinute;
+    protected int id;
     protected int startingHour;
     protected int startingMinute;
 
     /**
-     * Gets the value of the endingHour property.
+     * Obtient la valeur de la propriété endingHour.
      * 
      */
     public int getEndingHour() {
@@ -51,7 +54,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the endingHour property.
+     * Définit la valeur de la propriété endingHour.
      * 
      */
     public void setEndingHour(int value) {
@@ -59,7 +62,7 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the endingMinute property.
+     * Obtient la valeur de la propriété endingMinute.
      * 
      */
     public int getEndingMinute() {
@@ -67,7 +70,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the endingMinute property.
+     * Définit la valeur de la propriété endingMinute.
      * 
      */
     public void setEndingMinute(int value) {
@@ -75,7 +78,23 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the startingHour property.
+     * Obtient la valeur de la propriété id.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Définit la valeur de la propriété id.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété startingHour.
      * 
      */
     public int getStartingHour() {
@@ -83,7 +102,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the startingHour property.
+     * Définit la valeur de la propriété startingHour.
      * 
      */
     public void setStartingHour(int value) {
@@ -91,7 +110,7 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the startingMinute property.
+     * Obtient la valeur de la propriété startingMinute.
      * 
      */
     public int getStartingMinute() {
@@ -99,7 +118,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the startingMinute property.
+     * Définit la valeur de la propriété startingMinute.
      * 
      */
     public void setStartingMinute(int value) {

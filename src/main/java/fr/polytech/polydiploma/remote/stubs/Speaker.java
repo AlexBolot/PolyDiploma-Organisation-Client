@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for speaker complex type.
+ * <p>Classe Java pour speaker complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="speaker"&gt;
@@ -39,7 +39,7 @@ public class Speaker
     protected String mail;
 
     /**
-     * Gets the value of the isAttending property.
+     * Obtient la valeur de la propriété isAttending.
      * 
      */
     public boolean isIsAttending() {
@@ -47,7 +47,7 @@ public class Speaker
     }
 
     /**
-     * Sets the value of the isAttending property.
+     * Définit la valeur de la propriété isAttending.
      * 
      */
     public void setIsAttending(boolean value) {
@@ -55,7 +55,7 @@ public class Speaker
     }
 
     /**
-     * Gets the value of the mail property.
+     * Obtient la valeur de la propriété mail.
      * 
      * @return
      *     possible object is
@@ -67,7 +67,7 @@ public class Speaker
     }
 
     /**
-     * Sets the value of the mail property.
+     * Définit la valeur de la propriété mail.
      * 
      * @param value
      *     allowed object is

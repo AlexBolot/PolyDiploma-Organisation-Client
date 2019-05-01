@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for participant complex type.
+ * <p>Classe Java pour participant complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="participant"&gt;
@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="firstname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="lastname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -30,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "participant", propOrder = {
     "firstname",
+    "id",
     "lastname"
 })
 @XmlSeeAlso({
@@ -38,10 +40,11 @@ import javax.xml.bind.annotation.XmlType;
 public abstract class Participant {
 
     protected String firstname;
+    protected int id;
     protected String lastname;
 
     /**
-     * Gets the value of the firstname property.
+     * Obtient la valeur de la propriété firstname.
      * 
      * @return
      *     possible object is
@@ -53,7 +56,7 @@ public abstract class Participant {
     }
 
     /**
-     * Sets the value of the firstname property.
+     * Définit la valeur de la propriété firstname.
      * 
      * @param value
      *     allowed object is
@@ -65,7 +68,23 @@ public abstract class Participant {
     }
 
     /**
-     * Gets the value of the lastname property.
+     * Obtient la valeur de la propriété id.
+     * 
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Définit la valeur de la propriété id.
+     * 
+     */
+    public void setId(int value) {
+        this.id = value;
+    }
+
+    /**
+     * Obtient la valeur de la propriété lastname.
      * 
      * @return
      *     possible object is
@@ -77,7 +96,7 @@ public abstract class Participant {
     }
 
     /**
-     * Sets the value of the lastname property.
+     * Définit la valeur de la propriété lastname.
      * 
      * @param value
      *     allowed object is

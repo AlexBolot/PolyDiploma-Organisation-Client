@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for setFieldTimeslot complex type.
+ * <p>Classe Java pour setFieldTimeslot complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="setFieldTimeslot"&gt;
@@ -39,7 +39,7 @@ public class SetFieldTimeslot {
     protected Timeslot timeslot;
 
     /**
-     * Gets the value of the field property.
+     * Obtient la valeur de la propriété field.
      * 
      * @return
      *     possible object is
@@ -51,7 +51,7 @@ public class SetFieldTimeslot {
     }
 
     /**
-     * Sets the value of the field property.
+     * Définit la valeur de la propriété field.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +63,7 @@ public class SetFieldTimeslot {
     }
 
     /**
-     * Gets the value of the timeslot property.
+     * Obtient la valeur de la propriété timeslot.
      * 
      * @return
      *     possible object is
@@ -75,7 +75,7 @@ public class SetFieldTimeslot {
     }
 
     /**
-     * Sets the value of the timeslot property.
+     * Définit la valeur de la propriété timeslot.
      * 
      * @param value
      *     allowed object is
