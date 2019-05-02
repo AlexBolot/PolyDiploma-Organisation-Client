@@ -1,20 +1,20 @@
 
 # Ajoute des etudiants
-etudiant Hugo Francois hugo.francois@etu.unice.fr
-etudiant Alexandre Bolot alexandre.bolot@etu.unice.fr
-etudiant Lucas Oms lucas.oms@etu.unice.fr
-etudiant Prune Pilone prune.pilone@etu.unice.fr
+confirmer_presence Hugo Francois hugo.francois@etu.unice.fr
+confirmer_presence Alexandre Bolot alexandre.bolot@etu.unice.fr
+confirmer_presence Lucas Oms lucas.oms@etu.unice.fr
+confirmer_presence Prune Pilone prune.pilone@etu.unice.fr
 
 # Defini la date de la ceremony
-date 15 6 2019 14 30 18 30
+definir_date 15 6 2019 14 30 18 30
 
 # Ajoute des intervenants
-vip Alexandre Caminadas alexandre.caminadas@unice.fr 15 0 15 15
-vip Igor Litovsky igor.litovsky@unice.fr 15 15 15 30
-vip Michel Sardou michou@sardou.fr 15 30 16 0
-vip Elon Musket ellon.musket@spaceX.com 16 0 16 30
+inviter_VIP Alexandre Caminadas alexandre.caminadas@unice.fr 15 0 15 15
+inviter_VIP Igor Litovsky igor.litovsky@unice.fr 15 15 15 30
+inviter_VIP Michel Sardou michou@sardou.fr 15 30 16 0
+inviter_VIP Elon Musket ellon.musket@spaceX.com 16 0 16 30
 
 # affiche la liste des participants, le total et le planning
-lister
+liste_participants
 total
-afficher
+afficher_planning
