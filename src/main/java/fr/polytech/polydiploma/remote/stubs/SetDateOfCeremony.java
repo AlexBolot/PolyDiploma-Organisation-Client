@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour setDateOfCeremony complex type.
+ * <p>Java class for setDateOfCeremony complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="setDateOfCeremony"&gt;
@@ -37,7 +37,7 @@ public class SetDateOfCeremony {
     protected Timeslot timeslot;
 
     /**
-     * Obtient la valeur de la propriété date.
+     * Gets the value of the date property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class SetDateOfCeremony {
     }
 
     /**
-     * Définit la valeur de la propriété date.
+     * Sets the value of the date property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class SetDateOfCeremony {
     }
 
     /**
-     * Obtient la valeur de la propriété timeslot.
+     * Gets the value of the timeslot property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class SetDateOfCeremony {
     }
 
     /**
-     * Définit la valeur de la propriété timeslot.
+     * Sets the value of the timeslot property.
      * 
      * @param value
      *     allowed object is

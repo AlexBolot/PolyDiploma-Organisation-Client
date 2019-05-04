@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour planning complex type.
+ * <p>Java class for planning complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="planning"&gt;
@@ -40,7 +40,7 @@ public class Planning {
     protected Timeslot timeslot;
 
     /**
-     * Obtient la valeur de la propriété dateOfCeremony.
+     * Gets the value of the dateOfCeremony property.
      * 
      * @return
      *     possible object is
@@ -52,7 +52,7 @@ public class Planning {
     }
 
     /**
-     * Définit la valeur de la propriété dateOfCeremony.
+     * Sets the value of the dateOfCeremony property.
      * 
      * @param value
      *     allowed object is
@@ -64,7 +64,7 @@ public class Planning {
     }
 
     /**
-     * Obtient la valeur de la propriété name.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
@@ -76,7 +76,7 @@ public class Planning {
     }
 
     /**
-     * Définit la valeur de la propriété name.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
@@ -88,7 +88,7 @@ public class Planning {
     }
 
     /**
-     * Obtient la valeur de la propriété timeslot.
+     * Gets the value of the timeslot property.
      * 
      * @return
      *     possible object is
@@ -100,7 +100,7 @@ public class Planning {
     }
 
     /**
-     * Définit la valeur de la propriété timeslot.
+     * Sets the value of the timeslot property.
      * 
      * @param value
      *     allowed object is

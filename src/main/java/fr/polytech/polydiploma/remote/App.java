@@ -3,6 +3,7 @@ package fr.polytech.polydiploma.remote;
 import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.command.*;
 import fr.polytech.polydiploma.remote.cli.framework.Shell;
+import fr.polytech.polydiploma.remote.stubs.GetAllParticipant;
 
 public class App extends Shell<PolydiplomaOrganisationPublicAPI> {
 
@@ -25,6 +26,8 @@ public class App extends Shell<PolydiplomaOrganisationPublicAPI> {
                 SetFieldTimeslot.class,
                 GetFields.class,
                 ConfirmSpeakerAttendance.class,
+                GetAllParticipants.class,
+                GetGuestFromGraduate.class,
                 SendMailToHost.class
         );
     }

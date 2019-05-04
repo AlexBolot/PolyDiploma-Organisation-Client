@@ -28,10 +28,14 @@ public class ObjectFactory {
     private final static QName _AddSpeakerResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeakerResponse");
     private final static QName _ConfirmSpeakerAttendance_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "confirmSpeakerAttendance");
     private final static QName _ConfirmSpeakerAttendanceResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "confirmSpeakerAttendanceResponse");
+    private final static QName _GetAllParticipant_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getAllParticipant");
+    private final static QName _GetAllParticipantResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getAllParticipantResponse");
     private final static QName _GetDeliveryDate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDate");
     private final static QName _GetDeliveryDateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDateResponse");
     private final static QName _GetFields_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFields");
     private final static QName _GetFieldsResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFieldsResponse");
+    private final static QName _GetGuestFromGraduate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getGuestFromGraduate");
+    private final static QName _GetGuestFromGraduateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getGuestFromGraduateResponse");
     private final static QName _GetParticipantList_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantList");
     private final static QName _GetParticipantListResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantListResponse");
     private final static QName _GetPlanning_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanning");
@@ -46,6 +50,7 @@ public class ObjectFactory {
     private final static QName _SetFieldTimeslotResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setFieldTimeslotResponse");
     private final static QName _TimeslotOverlapException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "TimeslotOverlapException");
     private final static QName _ExternalPartnerException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "ExternalPartnerException");
+    private final static QName _SpeakerAlreadyExistException_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "SpeakerAlreadyExistException");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: fr.polytech.polydiploma.remote.stubs
@@ -87,6 +92,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllParticipant }
+     * 
+     */
+    public GetAllParticipant createGetAllParticipant() {
+        return new GetAllParticipant();
+    }
+
+    /**
+     * Create an instance of {@link GetAllParticipantResponse }
+     * 
+     */
+    public GetAllParticipantResponse createGetAllParticipantResponse() {
+        return new GetAllParticipantResponse();
+    }
+
+    /**
      * Create an instance of {@link GetDeliveryDate }
      * 
      */
@@ -116,6 +137,22 @@ public class ObjectFactory {
      */
     public GetFieldsResponse createGetFieldsResponse() {
         return new GetFieldsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetGuestFromGraduate }
+     * 
+     */
+    public GetGuestFromGraduate createGetGuestFromGraduate() {
+        return new GetGuestFromGraduate();
+    }
+
+    /**
+     * Create an instance of {@link GetGuestFromGraduateResponse }
+     * 
+     */
+    public GetGuestFromGraduateResponse createGetGuestFromGraduateResponse() {
+        return new GetGuestFromGraduateResponse();
     }
 
     /**
@@ -231,19 +268,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link SpeakerAlreadyExistException }
+     * 
+     */
+    public SpeakerAlreadyExistException createSpeakerAlreadyExistException() {
+        return new SpeakerAlreadyExistException();
+    }
+
+    /**
      * Create an instance of {@link Timeslot }
      * 
      */
     public Timeslot createTimeslot() {
         return new Timeslot();
-    }
-
-    /**
-     * Create an instance of {@link Speaker }
-     * 
-     */
-    public Speaker createSpeaker() {
-        return new Speaker();
     }
 
     /**
@@ -255,11 +292,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Speaker }
+     * 
+     */
+    public Speaker createSpeaker() {
+        return new Speaker();
+    }
+
+    /**
      * Create an instance of {@link Planning }
      * 
      */
     public Planning createPlanning() {
         return new Planning();
+    }
+
+    /**
+     * Create an instance of {@link Graduate }
+     * 
+     */
+    public Graduate createGraduate() {
+        return new Graduate();
+    }
+
+    /**
+     * Create an instance of {@link Guest }
+     * 
+     */
+    public Guest createGuest() {
+        return new Guest();
     }
 
     /**
@@ -299,6 +360,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllParticipant }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getAllParticipant")
+    public JAXBElement<GetAllParticipant> createGetAllParticipant(GetAllParticipant value) {
+        return new JAXBElement<GetAllParticipant>(_GetAllParticipant_QNAME, GetAllParticipant.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllParticipantResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getAllParticipantResponse")
+    public JAXBElement<GetAllParticipantResponse> createGetAllParticipantResponse(GetAllParticipantResponse value) {
+        return new JAXBElement<GetAllParticipantResponse>(_GetAllParticipantResponse_QNAME, GetAllParticipantResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetDeliveryDate }{@code >}}
      * 
      */
@@ -332,6 +411,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFieldsResponse")
     public JAXBElement<GetFieldsResponse> createGetFieldsResponse(GetFieldsResponse value) {
         return new JAXBElement<GetFieldsResponse>(_GetFieldsResponse_QNAME, GetFieldsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGuestFromGraduate }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getGuestFromGraduate")
+    public JAXBElement<GetGuestFromGraduate> createGetGuestFromGraduate(GetGuestFromGraduate value) {
+        return new JAXBElement<GetGuestFromGraduate>(_GetGuestFromGraduate_QNAME, GetGuestFromGraduate.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetGuestFromGraduateResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getGuestFromGraduateResponse")
+    public JAXBElement<GetGuestFromGraduateResponse> createGetGuestFromGraduateResponse(GetGuestFromGraduateResponse value) {
+        return new JAXBElement<GetGuestFromGraduateResponse>(_GetGuestFromGraduateResponse_QNAME, GetGuestFromGraduateResponse.class, null, value);
     }
 
     /**
@@ -458,6 +555,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "ExternalPartnerException")
     public JAXBElement<ExternalPartnerException> createExternalPartnerException(ExternalPartnerException value) {
         return new JAXBElement<ExternalPartnerException>(_ExternalPartnerException_QNAME, ExternalPartnerException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SpeakerAlreadyExistException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "SpeakerAlreadyExistException")
+    public JAXBElement<SpeakerAlreadyExistException> createSpeakerAlreadyExistException(SpeakerAlreadyExistException value) {
+        return new JAXBElement<SpeakerAlreadyExistException>(_SpeakerAlreadyExistException_QNAME, SpeakerAlreadyExistException.class, null, value);
     }
 
 }

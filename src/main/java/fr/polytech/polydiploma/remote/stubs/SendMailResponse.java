@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour sendMailResponse complex type.
+ * <p>Java class for sendMailResponse complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="sendMailResponse"&gt;
@@ -36,7 +36,7 @@ public class SendMailResponse {
     protected boolean sendSuccess;
 
     /**
-     * Obtient la valeur de la propriété sendSuccess.
+     * Gets the value of the sendSuccess property.
      * 
      */
     public boolean isSendSuccess() {
@@ -44,7 +44,7 @@ public class SendMailResponse {
     }
 
     /**
-     * Définit la valeur de la propriété sendSuccess.
+     * Sets the value of the sendSuccess property.
      * 
      */
     public void setSendSuccess(boolean value) {

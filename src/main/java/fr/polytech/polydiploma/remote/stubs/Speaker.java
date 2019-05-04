@@ -3,13 +3,14 @@ package fr.polytech.polydiploma.remote.stubs;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour speaker complex type.
+ * <p>Java class for speaker complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="speaker"&gt;
@@ -31,6 +32,9 @@ import javax.xml.bind.annotation.XmlType;
     "isAttending",
     "mail"
 })
+@XmlSeeAlso({
+    Graduate.class
+})
 public class Speaker
     extends Participant
 {
@@ -39,7 +43,7 @@ public class Speaker
     protected String mail;
 
     /**
-     * Obtient la valeur de la propriété isAttending.
+     * Gets the value of the isAttending property.
      * 
      */
     public boolean isIsAttending() {
@@ -47,7 +51,7 @@ public class Speaker
     }
 
     /**
-     * Définit la valeur de la propriété isAttending.
+     * Sets the value of the isAttending property.
      * 
      */
     public void setIsAttending(boolean value) {
@@ -55,7 +59,7 @@ public class Speaker
     }
 
     /**
-     * Obtient la valeur de la propriété mail.
+     * Gets the value of the mail property.
      * 
      * @return
      *     possible object is
@@ -67,7 +71,7 @@ public class Speaker
     }
 
     /**
-     * Définit la valeur de la propriété mail.
+     * Sets the value of the mail property.
      * 
      * @param value
      *     allowed object is

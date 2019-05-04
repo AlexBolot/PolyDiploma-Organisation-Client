@@ -27,8 +27,25 @@ public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
             log("La cérémonie est prévue pour le " + dateString + " de " + startString + " a " + endString);
 
         } catch (NullPointerException e) {
-            log("La date et l'heure de la cerenomy n'est toujours pas défini");
+            log("La date et l'heure de la cerenomie n'est toujours pas défini");
         }
+//        if (planning.getTimeslots().getEntry().isEmpty()) {
+//            System.out.println("    Il n'y a aucun intervenant avec un horaire");
+//        } else {
+//            planning.getTimeslots().getEntry().forEach(entry -> System.out.println("    L'intervenant "
+//                    + entry.getKey().getFirstname() + " "
+//                    + entry.getKey().getLastname() + " passe de "
+//                    + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
+//                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
+//        }
+//        if (planning.getFieldsTimeslots().getEntry().isEmpty()) {
+//            System.out.println("    Il n'y a aucune filières avec un horaire");
+//        } else {
+//            planning.getFieldsTimeslots().getEntry().forEach(entry -> System.out.println("    La filière "
+//                    + entry.getKey().value() + " " + " passe de "
+//                    + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
+//                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
+//        }
     }
 
     @Override

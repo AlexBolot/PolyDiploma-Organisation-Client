@@ -1,20 +1,42 @@
-
-# Ajoute des etudiants
-confirmer_presence Hugo Francois hugo.francois@etu.unice.fr
-confirmer_presence Alexandre Bolot alexandre.bolot@etu.unice.fr
-confirmer_presence Lucas Oms lucas.oms@etu.unice.fr
-confirmer_presence Prune Pilone prune.pilone@etu.unice.fr
-
-# Defini la date de la ceremony
+# L'administation définit la date de la cérémonie et invite des étudiants
 definir_date 15 6 2019 14 30 18 30
+inviter_etudiants
 
-# Ajoute des intervenants
-inviter_VIP Alexandre Caminadas alexandre.caminadas@unice.fr 15 0 15 15
+afficher_planning
+
+# Le BDE veut savoir combien de participants viennent pour l'instant
+total
+
+# L'administration ajoute des intervenants
+inviter_VIP Alexandre Caminada alexandre.caminada@unice.fr 15 0 15 15
 inviter_VIP Igor Litovsky igor.litovsky@unice.fr 15 15 15 30
 inviter_VIP Michel Sardou michou@sardou.fr 15 30 16 0
-inviter_VIP Elon Musket ellon.musket@spaceX.com 16 0 16 30
+inviter_VIP Melon Musk melon.musk@spaceX.com 16 0 16 30
 
-# affiche la liste des participants, le total et le planning
+confirmer_presence Alexandre Caminada alexandre.caminada@unice.fr
+confirmer_presence Igor Litovsky igor.litovsky@unice.fr
+confirmer_presence Michel Sardou michou@sardou.fr
+confirmer_presence Melon Musk melon.musk@spaceX.com
+
+
+# L'administration affiche la liste des participants, le total 
 liste_participants
 total
-afficher_planning
+
+# Des étudiants confirment leur présence
+confirmer_venue Hugo Francois hugo.francois@etu.unice.fr
+confirmer_venue Alexandre Bolot alexandre.bolot@etu.unice.fr
+confirmer_venue Lucas Oms lucas.oms@etu.unice.fr
+confirmer_venue Prune Pillone prune.pillone@etu.unice.fr
+
+# Un étudiant invite 3 invités
+
+ajouter_invité hugo.francois@etu.unice.fr Georges Lucas
+ajouter_invité hugo.francois@etu.unice.fr Chef Bruno
+ajouter_invité hugo.francois@etu.unice.fr JRR Tolkien
+
+#La compta paie la salle
+payer 2500 FR1234567989
+
+#On envoie un mail à l'hôte de cérémonie
+reserver_ceremonie host@gmail.com

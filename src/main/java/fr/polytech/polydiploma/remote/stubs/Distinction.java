@@ -6,40 +6,32 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for field.
+ * <p>Java class for distinction.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
- * &lt;simpleType name="field"&gt;
+ * &lt;simpleType name="distinction"&gt;
  *   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *     &lt;enumeration value="SI"/&gt;
- *     &lt;enumeration value="MAM"/&gt;
- *     &lt;enumeration value="GB"/&gt;
- *     &lt;enumeration value="ITII"/&gt;
- *     &lt;enumeration value="GE"/&gt;
- *     &lt;enumeration value="ELEC"/&gt;
+ *     &lt;enumeration value="MAJOR"/&gt;
+ *     &lt;enumeration value="HONOR"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
  * 
  */
-@XmlType(name = "field")
+@XmlType(name = "distinction")
 @XmlEnum
-public enum Field {
+public enum Distinction {
 
-    SI,
-    MAM,
-    GB,
-    ITII,
-    GE,
-    ELEC;
+    MAJOR,
+    HONOR;
 
     public String value() {
         return name();
     }
 
-    public static Field fromValue(String v) {
+    public static Distinction fromValue(String v) {
         return valueOf(v);
     }
 

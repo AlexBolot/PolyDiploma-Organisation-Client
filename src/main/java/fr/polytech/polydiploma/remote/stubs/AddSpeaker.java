@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour addSpeaker complex type.
+ * <p>Java class for addSpeaker complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="addSpeaker"&gt;
@@ -37,7 +37,7 @@ public class AddSpeaker {
     protected Timeslot timeslot;
 
     /**
-     * Obtient la valeur de la propriété speaker.
+     * Gets the value of the speaker property.
      * 
      * @return
      *     possible object is
@@ -49,7 +49,7 @@ public class AddSpeaker {
     }
 
     /**
-     * Définit la valeur de la propriété speaker.
+     * Sets the value of the speaker property.
      * 
      * @param value
      *     allowed object is
@@ -61,7 +61,7 @@ public class AddSpeaker {
     }
 
     /**
-     * Obtient la valeur de la propriété timeslot.
+     * Gets the value of the timeslot property.
      * 
      * @return
      *     possible object is
@@ -73,7 +73,7 @@ public class AddSpeaker {
     }
 
     /**
-     * Définit la valeur de la propriété timeslot.
+     * Sets the value of the timeslot property.
      * 
      * @param value
      *     allowed object is

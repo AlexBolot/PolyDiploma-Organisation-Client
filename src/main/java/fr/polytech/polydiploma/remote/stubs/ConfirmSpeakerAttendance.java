@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour confirmSpeakerAttendance complex type.
+ * <p>Java class for confirmSpeakerAttendance complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="confirmSpeakerAttendance"&gt;
@@ -34,7 +34,7 @@ public class ConfirmSpeakerAttendance {
     protected Speaker speaker;
 
     /**
-     * Obtient la valeur de la propriété speaker.
+     * Gets the value of the speaker property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class ConfirmSpeakerAttendance {
     }
 
     /**
-     * Définit la valeur de la propriété speaker.
+     * Sets the value of the speaker property.
      * 
      * @param value
      *     allowed object is

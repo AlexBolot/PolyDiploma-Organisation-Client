@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for ExternalPartnerException complex type.
+ * <p>Java class for getGuestFromGraduate complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="ExternalPartnerException"&gt;
+ * &lt;complexType name="getGuestFromGraduate"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="graduate" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}graduate" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ExternalPartnerException", propOrder = {
-    "message"
+@XmlType(name = "getGuestFromGraduate", propOrder = {
+    "graduate"
 })
-public class ExternalPartnerException {
+public class GetGuestFromGraduate {
 
-    protected String message;
+    protected Graduate graduate;
 
     /**
-     * Gets the value of the message property.
+     * Gets the value of the graduate property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Graduate }
      *     
      */
-    public String getMessage() {
-        return message;
+    public Graduate getGraduate() {
+        return graduate;
     }
 
     /**
-     * Sets the value of the message property.
+     * Sets the value of the graduate property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Graduate }
      *     
      */
-    public void setMessage(String value) {
-        this.message = value;
+    public void setGraduate(Graduate value) {
+        this.graduate = value;
     }
 
 }

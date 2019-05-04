@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour getPlanningResponse complex type.
+ * <p>Java class for getPlanningResponse complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="getPlanningResponse"&gt;
@@ -34,7 +34,7 @@ public class GetPlanningResponse {
     protected Planning planning;
 
     /**
-     * Obtient la valeur de la propriété planning.
+     * Gets the value of the planning property.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetPlanningResponse {
     }
 
     /**
-     * Définit la valeur de la propriété planning.
+     * Sets the value of the planning property.
      * 
      * @param value
      *     allowed object is
