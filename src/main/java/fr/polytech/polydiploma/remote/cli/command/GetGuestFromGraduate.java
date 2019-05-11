@@ -9,8 +9,6 @@ import java.util.List;
 
 public class GetGuestFromGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
 
-    private String firstname;
-    private String lastname;
     private String mail;
 
     @Override
@@ -20,17 +18,21 @@ public class GetGuestFromGraduate extends Command<PolydiplomaOrganisationPublicA
 
     @Override
     public void execute() throws Exception {
-        Graduate graduate = new Graduate();
-        graduate.setFirstname(firstname);
-        graduate.setLastname(lastname);
-        graduate.setMail(mail);
-
-        List<Guest> guests = shell.system.organisation.getGuestFromGraduate(graduate);
+        List<Guest> guests = shell.system.organisation.getGuestFromGraduate(mail);
 
         if (guests.isEmpty())
             log("Il n'y a pas d'invité pour cette étudiant");
-        else
-            guests.stream().map(guest -> guest.getFirstname() + " " + guest.getLastname()).forEach(this::log);
+        else {
+            for (Guest g : guests) {
+                log(g.getFirstname() + " " + g.getLastname() + " : " + (g.isPayingGuest() ? (g.isHasPayed() ? "a payé" : "n'a pas payé") : "venue gratuite"));
+            }
+        }
+//        guests.stream().map(guest -> guest.getFirstname() + " " + guest.getLastname()).forEach(this::log);
+    }
+
+    @Override
+    public void load(List<String> args) {
+        mail = args.get(0);
     }
 
     @Override

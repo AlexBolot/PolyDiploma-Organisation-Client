@@ -6,7 +6,7 @@ import fr.polytech.polydiploma.remote.cli.framework.Command;
 public class Exit extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
-    public String identifier() { return "exit"; }
+    public String identifier() { return "quitter"; }
 
     @Override
     public void execute() { }

@@ -24,10 +24,10 @@ liste_participants
 total
 
 # Des étudiants confirment leur présence
-confirmer_venue Hugo Francois hugo.francois@etu.unice.fr
-confirmer_venue Alexandre Bolot alexandre.bolot@etu.unice.fr
-confirmer_venue Lucas Oms lucas.oms@etu.unice.fr
-confirmer_venue Prune Pillone prune.pillone@etu.unice.fr
+confirmer_venue hugo.francois@etu.unice.fr
+confirmer_venue alexandre.bolot@etu.unice.fr
+confirmer_venue lucas.oms@etu.unice.fr
+confirmer_venue prune.pillone@etu.unice.fr
 
 # Un étudiant invite 3 invités
 

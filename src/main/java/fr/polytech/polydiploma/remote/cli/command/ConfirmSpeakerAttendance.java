@@ -2,15 +2,20 @@ package fr.polytech.polydiploma.remote.cli.command;
 
 import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.framework.Command;
+import fr.polytech.polydiploma.remote.stubs.ExternalPartnerException_Exception;
 import fr.polytech.polydiploma.remote.stubs.Speaker;
+import fr.polytech.polydiploma.remote.stubs.Timeslot;
+import fr.polytech.polydiploma.remote.stubs.TimeslotOverlapException_Exception;
 
 import java.util.List;
 
 public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPublicAPI> {
 
-    private String firstname;
-    private String lastname;
     private String mail;
+    private int minuteDebut;
+    private int heureDebut;
+    private int minuteFin;
+    private int heureFin;
 
     @Override
     public String identifier() {
@@ -19,23 +24,33 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
 
     @Override
     public void execute() {
-        Speaker speaker = new Speaker();
-        speaker.setFirstname(firstname);
-        speaker.setLastname(lastname);
-        speaker.setMail(mail);
+        Timeslot timeslot = new Timeslot();
+        timeslot.setStartingMinute(minuteDebut);
+        timeslot.setStartingHour(heureDebut);
+        timeslot.setEndingMinute(minuteFin);
+        timeslot.setEndingHour(heureFin);
 
-        shell.system.organisation.confirmSpeakerAttendance(speaker);
+        try {
+            shell.system.organisation.confirmSpeakerAttendance(mail, timeslot);
+            log("La présence du VIP est confirmé");
+        } catch (ExternalPartnerException_Exception e) {
+            log("Le(s) service(s) externe(s) ne fonctionne pas : " + e.getMessage());
+        } catch (TimeslotOverlapException_Exception e) {
+            log("Le crenaux empiette sur un autre : " + e.getMessage());
+        }
     }
 
     @Override
     public void load(List<String> args) {
-        firstname = args.get(0);
-        lastname = args.get(1);
-        mail = args.get(2);
+        mail = args.get(0);
+        minuteDebut = tryParse(args.get(1));
+        heureDebut = tryParse(args.get(2));
+        minuteFin = tryParse(args.get(3));
+        heureFin = tryParse(args.get(4));
     }
 
     @Override
     public String describe() {
-        return "Confirme la présence d'un vip à la cérémonie (confirmer_presence PRENOM NOM MAIL)";
+        return "Confirme la présence d'un vip à la cérémonie (confirmer_presence MAIL MINUTE_DEBUT HEURE_DEBUT MINUTE_FIN HEURE_FIN)";
     }
 }

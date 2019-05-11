@@ -1,34 +1,42 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="OrganisationWebServiceImplService" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
     <wsdl:types>
         <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation">
-            <xs:element name="addSpeaker" type="tns:addSpeaker"/>
-            <xs:element name="addSpeakerResponse" type="tns:addSpeakerResponse"/>
             <xs:element name="confirmSpeakerAttendance" type="tns:confirmSpeakerAttendance"/>
             <xs:element name="confirmSpeakerAttendanceResponse" type="tns:confirmSpeakerAttendanceResponse"/>
             <xs:element name="getAllParticipant" type="tns:getAllParticipant"/>
             <xs:element name="getAllParticipantResponse" type="tns:getAllParticipantResponse"/>
             <xs:element name="getDeliveryDate" type="tns:getDeliveryDate"/>
             <xs:element name="getDeliveryDateResponse" type="tns:getDeliveryDateResponse"/>
+            <xs:element name="getFieldTimeslot" type="tns:getFieldTimeslot"/>
+            <xs:element name="getFieldTimeslotResponse" type="tns:getFieldTimeslotResponse"/>
             <xs:element name="getFields" type="tns:getFields"/>
             <xs:element name="getFieldsResponse" type="tns:getFieldsResponse"/>
+            <xs:element name="getFreeTimeslot" type="tns:getFreeTimeslot"/>
+            <xs:element name="getFreeTimeslotResponse" type="tns:getFreeTimeslotResponse"/>
             <xs:element name="getGuestFromGraduate" type="tns:getGuestFromGraduate"/>
             <xs:element name="getGuestFromGraduateResponse" type="tns:getGuestFromGraduateResponse"/>
             <xs:element name="getParticipantList" type="tns:getParticipantList"/>
             <xs:element name="getParticipantListResponse" type="tns:getParticipantListResponse"/>
             <xs:element name="getPlanning" type="tns:getPlanning"/>
             <xs:element name="getPlanningResponse" type="tns:getPlanningResponse"/>
+            <xs:element name="getSpeakerTimeslot" type="tns:getSpeakerTimeslot"/>
+            <xs:element name="getSpeakerTimeslotResponse" type="tns:getSpeakerTimeslotResponse"/>
             <xs:element name="inviteGraduates" type="tns:inviteGraduates"/>
             <xs:element name="inviteGraduatesResponse" type="tns:inviteGraduatesResponse"/>
+            <xs:element name="inviteSpeaker" type="tns:inviteSpeaker"/>
+            <xs:element name="inviteSpeakerResponse" type="tns:inviteSpeakerResponse"/>
             <xs:element name="sendMail" type="tns:sendMail"/>
             <xs:element name="sendMailResponse" type="tns:sendMailResponse"/>
             <xs:element name="setDateOfCeremony" type="tns:setDateOfCeremony"/>
             <xs:element name="setDateOfCeremonyResponse" type="tns:setDateOfCeremonyResponse"/>
             <xs:element name="setFieldTimeslot" type="tns:setFieldTimeslot"/>
             <xs:element name="setFieldTimeslotResponse" type="tns:setFieldTimeslotResponse"/>
-            <xs:complexType name="setFieldTimeslot">
+            <xs:complexType name="getFreeTimeslot">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getFreeTimeslotResponse">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="field" type="tns:field"/>
-                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="free_timeslot" type="tns:timeslot"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="timeslot">
@@ -37,6 +45,12 @@
                     <xs:element name="endingMinute" type="xs:int"/>
                     <xs:element name="startingHour" type="xs:int"/>
                     <xs:element name="startingMinute" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="setFieldTimeslot">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="field" type="tns:field"/>
+                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="setFieldTimeslotResponse">
@@ -72,6 +86,37 @@
                     <xs:element name="year" type="xs:int"/>
                 </xs:sequence>
             </xs:complexType>
+            <xs:complexType name="getSpeakerTimeslot">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getSpeakerTimeslotResponse">
+                <xs:sequence>
+                    <xs:element name="speaker_timeslot">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="tns:timeslot"/>
+                                            <xs:element minOccurs="0" name="value" type="tns:speaker"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="speaker">
+                <xs:complexContent>
+                    <xs:extension base="tns:participant">
+                        <xs:sequence>
+                            <xs:element name="isAttending" type="xs:boolean"/>
+                            <xs:element minOccurs="0" name="mail" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:extension>
+                </xs:complexContent>
+            </xs:complexType>
             <xs:complexType name="sendMail">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="host_mail" type="xs:string"/>
@@ -91,23 +136,12 @@
             <xs:complexType name="setDateOfCeremonyResponse">
                 <xs:sequence/>
             </xs:complexType>
-            <xs:complexType name="addSpeaker">
+            <xs:complexType name="inviteSpeaker">
                 <xs:sequence>
                     <xs:element minOccurs="0" name="speaker" type="tns:speaker"/>
-                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:complexType name="speaker">
-                <xs:complexContent>
-                    <xs:extension base="tns:participant">
-                        <xs:sequence>
-                            <xs:element name="isAttending" type="xs:boolean"/>
-                            <xs:element minOccurs="0" name="mail" type="xs:string"/>
-                        </xs:sequence>
-                    </xs:extension>
-                </xs:complexContent>
-            </xs:complexType>
-            <xs:complexType name="addSpeakerResponse">
+            <xs:complexType name="inviteSpeakerResponse">
                 <xs:sequence/>
             </xs:complexType>
             <xs:complexType name="getParticipantList">
@@ -123,6 +157,27 @@
             </xs:complexType>
             <xs:complexType name="inviteGraduatesResponse">
                 <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getFieldTimeslot">
+                <xs:sequence/>
+            </xs:complexType>
+            <xs:complexType name="getFieldTimeslotResponse">
+                <xs:sequence>
+                    <xs:element name="field_timeslot">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="key" type="tns:timeslot"/>
+                                            <xs:element minOccurs="0" name="value" type="tns:field"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="getPlanning">
                 <xs:sequence/>
@@ -141,7 +196,8 @@
             </xs:complexType>
             <xs:complexType name="confirmSpeakerAttendance">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="speaker" type="tns:speaker"/>
+                    <xs:element minOccurs="0" name="mail" type="xs:string"/>
+                    <xs:element minOccurs="0" name="timeslot" type="tns:timeslot"/>
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="confirmSpeakerAttendanceResponse">
@@ -157,19 +213,13 @@
             </xs:complexType>
             <xs:complexType name="getGuestFromGraduate">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="graduate" type="tns:graduate"/>
+                    <xs:element minOccurs="0" name="email" type="xs:string"/>
                 </xs:sequence>
             </xs:complexType>
-            <xs:complexType name="graduate">
-                <xs:complexContent>
-                    <xs:extension base="tns:speaker">
-                        <xs:sequence>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="distinctions" nillable="true" type="tns:distinction"/>
-                            <xs:element minOccurs="0" name="field" type="tns:field"/>
-                            <xs:element maxOccurs="unbounded" minOccurs="0" name="guests" nillable="true" type="tns:guest"/>
-                        </xs:sequence>
-                    </xs:extension>
-                </xs:complexContent>
+            <xs:complexType name="getGuestFromGraduateResponse">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="guest_list" type="tns:guest"/>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="guest">
                 <xs:complexContent>
@@ -181,11 +231,6 @@
                     </xs:extension>
                 </xs:complexContent>
             </xs:complexType>
-            <xs:complexType name="getGuestFromGraduateResponse">
-                <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="guest_list" type="tns:guest"/>
-                </xs:sequence>
-            </xs:complexType>
             <xs:simpleType name="field">
                 <xs:restriction base="xs:string">
                     <xs:enumeration value="SI"/>
@@ -194,12 +239,6 @@
                     <xs:enumeration value="ITII"/>
                     <xs:enumeration value="GE"/>
                     <xs:enumeration value="ELEC"/>
-                </xs:restriction>
-            </xs:simpleType>
-            <xs:simpleType name="distinction">
-                <xs:restriction base="xs:string">
-                    <xs:enumeration value="MAJOR"/>
-                    <xs:enumeration value="HONOR"/>
                 </xs:restriction>
             </xs:simpleType>
             <xs:element name="TimeslotOverlapException" type="tns:TimeslotOverlapException"/>
@@ -226,6 +265,10 @@
         <wsdl:part element="tns:getPlanningResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="getFreeTimeslot">
+        <wsdl:part element="tns:getFreeTimeslot" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="setFieldTimeslot">
         <wsdl:part element="tns:setFieldTimeslot" name="parameters">
         </wsdl:part>
@@ -234,8 +277,16 @@
         <wsdl:part element="tns:getDeliveryDate" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="getSpeakerTimeslot">
+        <wsdl:part element="tns:getSpeakerTimeslot" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="getAllParticipantResponse">
         <wsdl:part element="tns:getAllParticipantResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="inviteSpeakerResponse">
+        <wsdl:part element="tns:inviteSpeakerResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="confirmSpeakerAttendanceResponse">
@@ -282,6 +333,10 @@
         <wsdl:part element="tns:SpeakerAlreadyExistException" name="SpeakerAlreadyExistException">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="getFreeTimeslotResponse">
+        <wsdl:part element="tns:getFreeTimeslotResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="ExternalPartnerException">
         <wsdl:part element="tns:ExternalPartnerException" name="ExternalPartnerException">
         </wsdl:part>
@@ -294,16 +349,20 @@
         <wsdl:part element="tns:setDateOfCeremony" name="parameters">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="inviteSpeaker">
+        <wsdl:part element="tns:inviteSpeaker" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFieldTimeslotResponse">
+        <wsdl:part element="tns:getFieldTimeslotResponse" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="getGuestFromGraduateResponse">
         <wsdl:part element="tns:getGuestFromGraduateResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
-    <wsdl:message name="addSpeaker">
-        <wsdl:part element="tns:addSpeaker" name="parameters">
-        </wsdl:part>
-    </wsdl:message>
-    <wsdl:message name="addSpeakerResponse">
-        <wsdl:part element="tns:addSpeakerResponse" name="parameters">
+    <wsdl:message name="getSpeakerTimeslotResponse">
+        <wsdl:part element="tns:getSpeakerTimeslotResponse" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="getParticipantListResponse">
@@ -316,6 +375,10 @@
     </wsdl:message>
     <wsdl:message name="inviteGraduates">
         <wsdl:part element="tns:inviteGraduates" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getFieldTimeslot">
+        <wsdl:part element="tns:getFieldTimeslot" name="parameters">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="getPlanning">
@@ -331,6 +394,12 @@
         </wsdl:part>
     </wsdl:message>
     <wsdl:portType name="OrganisationWebService">
+        <wsdl:operation name="getFreeTimeslot">
+            <wsdl:input message="tns:getFreeTimeslot" name="getFreeTimeslot">
+            </wsdl:input>
+            <wsdl:output message="tns:getFreeTimeslotResponse" name="getFreeTimeslotResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="setFieldTimeslot">
             <wsdl:input message="tns:setFieldTimeslot" name="setFieldTimeslot">
             </wsdl:input>
@@ -353,6 +422,12 @@
             <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="getSpeakerTimeslot">
+            <wsdl:input message="tns:getSpeakerTimeslot" name="getSpeakerTimeslot">
+            </wsdl:input>
+            <wsdl:output message="tns:getSpeakerTimeslotResponse" name="getSpeakerTimeslotResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="sendMail">
             <wsdl:input message="tns:sendMail" name="sendMail">
             </wsdl:input>
@@ -367,16 +442,14 @@
             <wsdl:output message="tns:setDateOfCeremonyResponse" name="setDateOfCeremonyResponse">
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="addSpeaker">
-            <wsdl:input message="tns:addSpeaker" name="addSpeaker">
+        <wsdl:operation name="inviteSpeaker">
+            <wsdl:input message="tns:inviteSpeaker" name="inviteSpeaker">
             </wsdl:input>
-            <wsdl:output message="tns:addSpeakerResponse" name="addSpeakerResponse">
+            <wsdl:output message="tns:inviteSpeakerResponse" name="inviteSpeakerResponse">
             </wsdl:output>
             <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
             </wsdl:fault>
             <wsdl:fault message="tns:SpeakerAlreadyExistException" name="SpeakerAlreadyExistException">
-            </wsdl:fault>
-            <wsdl:fault message="tns:TimeslotOverlapException" name="TimeslotOverlapException">
             </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="getParticipantList">
@@ -395,6 +468,12 @@
             <wsdl:fault message="tns:SpeakerAlreadyExistException" name="SpeakerAlreadyExistException">
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="getFieldTimeslot">
+            <wsdl:input message="tns:getFieldTimeslot" name="getFieldTimeslot">
+            </wsdl:input>
+            <wsdl:output message="tns:getFieldTimeslotResponse" name="getFieldTimeslotResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getPlanning">
             <wsdl:input message="tns:getPlanning" name="getPlanning">
             </wsdl:input>
@@ -406,6 +485,10 @@
             </wsdl:input>
             <wsdl:output message="tns:confirmSpeakerAttendanceResponse" name="confirmSpeakerAttendanceResponse">
             </wsdl:output>
+            <wsdl:fault message="tns:ExternalPartnerException" name="ExternalPartnerException">
+            </wsdl:fault>
+            <wsdl:fault message="tns:TimeslotOverlapException" name="TimeslotOverlapException">
+            </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="getFields">
             <wsdl:input message="tns:getFields" name="getFields">
@@ -422,6 +505,15 @@
     </wsdl:portType>
     <wsdl:binding name="OrganisationWebServiceImplServiceSoapBinding" type="tns:OrganisationWebService">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getFreeTimeslot">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getFreeTimeslot">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getFreeTimeslotResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="setFieldTimeslot">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="setFieldTimeslot">
@@ -455,6 +547,15 @@
                 <soap:fault name="ExternalPartnerException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="getSpeakerTimeslot">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getSpeakerTimeslot">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getSpeakerTimeslotResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getDeliveryDate">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="getDeliveryDate">
@@ -476,12 +577,12 @@
                 <soap:body use="literal"/>
             </wsdl:output>
         </wsdl:operation>
-        <wsdl:operation name="addSpeaker">
+        <wsdl:operation name="inviteSpeaker">
             <soap:operation soapAction="" style="document"/>
-            <wsdl:input name="addSpeaker">
+            <wsdl:input name="inviteSpeaker">
                 <soap:body use="literal"/>
             </wsdl:input>
-            <wsdl:output name="addSpeakerResponse">
+            <wsdl:output name="inviteSpeakerResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
             <wsdl:fault name="ExternalPartnerException">
@@ -489,9 +590,6 @@
             </wsdl:fault>
             <wsdl:fault name="SpeakerAlreadyExistException">
                 <soap:fault name="SpeakerAlreadyExistException" use="literal"/>
-            </wsdl:fault>
-            <wsdl:fault name="TimeslotOverlapException">
-                <soap:fault name="TimeslotOverlapException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="getParticipantList">
@@ -518,6 +616,15 @@
                 <soap:fault name="SpeakerAlreadyExistException" use="literal"/>
             </wsdl:fault>
         </wsdl:operation>
+        <wsdl:operation name="getFieldTimeslot">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getFieldTimeslot">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getFieldTimeslotResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="getPlanning">
             <soap:operation soapAction="" style="document"/>
             <wsdl:input name="getPlanning">
@@ -535,6 +642,12 @@
             <wsdl:output name="confirmSpeakerAttendanceResponse">
                 <soap:body use="literal"/>
             </wsdl:output>
+            <wsdl:fault name="ExternalPartnerException">
+                <soap:fault name="ExternalPartnerException" use="literal"/>
+            </wsdl:fault>
+            <wsdl:fault name="TimeslotOverlapException">
+                <soap:fault name="TimeslotOverlapException" use="literal"/>
+            </wsdl:fault>
         </wsdl:operation>
         <wsdl:operation name="getFields">
             <soap:operation soapAction="" style="document"/>

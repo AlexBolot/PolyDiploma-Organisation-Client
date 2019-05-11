@@ -16,7 +16,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="speaker" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}speaker" minOccurs="0"/&gt;
+ *         &lt;element name="mail" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="timeslot" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}timeslot" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,34 +28,60 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "confirmSpeakerAttendance", propOrder = {
-    "speaker"
+    "mail",
+    "timeslot"
 })
 public class ConfirmSpeakerAttendance {
 
-    protected Speaker speaker;
+    protected String mail;
+    protected Timeslot timeslot;
 
     /**
-     * Gets the value of the speaker property.
+     * Gets the value of the mail property.
      * 
      * @return
      *     possible object is
-     *     {@link Speaker }
+     *     {@link String }
      *     
      */
-    public Speaker getSpeaker() {
-        return speaker;
+    public String getMail() {
+        return mail;
     }
 
     /**
-     * Sets the value of the speaker property.
+     * Sets the value of the mail property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Speaker }
+     *     {@link String }
      *     
      */
-    public void setSpeaker(Speaker value) {
-        this.speaker = value;
+    public void setMail(String value) {
+        this.mail = value;
+    }
+
+    /**
+     * Gets the value of the timeslot property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Timeslot }
+     *     
+     */
+    public Timeslot getTimeslot() {
+        return timeslot;
+    }
+
+    /**
+     * Sets the value of the timeslot property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Timeslot }
+     *     
+     */
+    public void setTimeslot(Timeslot value) {
+        this.timeslot = value;
     }
 
 }

@@ -24,24 +24,30 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _AddSpeaker_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeaker");
-    private final static QName _AddSpeakerResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "addSpeakerResponse");
     private final static QName _ConfirmSpeakerAttendance_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "confirmSpeakerAttendance");
     private final static QName _ConfirmSpeakerAttendanceResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "confirmSpeakerAttendanceResponse");
     private final static QName _GetAllParticipant_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getAllParticipant");
     private final static QName _GetAllParticipantResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getAllParticipantResponse");
     private final static QName _GetDeliveryDate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDate");
     private final static QName _GetDeliveryDateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getDeliveryDateResponse");
+    private final static QName _GetFieldTimeslot_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFieldTimeslot");
+    private final static QName _GetFieldTimeslotResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFieldTimeslotResponse");
     private final static QName _GetFields_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFields");
     private final static QName _GetFieldsResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFieldsResponse");
+    private final static QName _GetFreeTimeslot_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFreeTimeslot");
+    private final static QName _GetFreeTimeslotResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getFreeTimeslotResponse");
     private final static QName _GetGuestFromGraduate_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getGuestFromGraduate");
     private final static QName _GetGuestFromGraduateResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getGuestFromGraduateResponse");
     private final static QName _GetParticipantList_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantList");
     private final static QName _GetParticipantListResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getParticipantListResponse");
     private final static QName _GetPlanning_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanning");
     private final static QName _GetPlanningResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getPlanningResponse");
+    private final static QName _GetSpeakerTimeslot_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getSpeakerTimeslot");
+    private final static QName _GetSpeakerTimeslotResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "getSpeakerTimeslotResponse");
     private final static QName _InviteGraduates_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduates");
     private final static QName _InviteGraduatesResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteGraduatesResponse");
+    private final static QName _InviteSpeaker_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteSpeaker");
+    private final static QName _InviteSpeakerResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "inviteSpeakerResponse");
     private final static QName _SendMail_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "sendMail");
     private final static QName _SendMailResponse_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "sendMailResponse");
     private final static QName _SetDateOfCeremony_QNAME = new QName("http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", "setDateOfCeremony");
@@ -60,19 +66,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AddSpeaker }
+     * Create an instance of {@link GetSpeakerTimeslotResponse }
      * 
      */
-    public AddSpeaker createAddSpeaker() {
-        return new AddSpeaker();
+    public GetSpeakerTimeslotResponse createGetSpeakerTimeslotResponse() {
+        return new GetSpeakerTimeslotResponse();
     }
 
     /**
-     * Create an instance of {@link AddSpeakerResponse }
+     * Create an instance of {@link GetSpeakerTimeslotResponse.SpeakerTimeslot }
      * 
      */
-    public AddSpeakerResponse createAddSpeakerResponse() {
-        return new AddSpeakerResponse();
+    public GetSpeakerTimeslotResponse.SpeakerTimeslot createGetSpeakerTimeslotResponseSpeakerTimeslot() {
+        return new GetSpeakerTimeslotResponse.SpeakerTimeslot();
+    }
+
+    /**
+     * Create an instance of {@link GetFieldTimeslotResponse }
+     * 
+     */
+    public GetFieldTimeslotResponse createGetFieldTimeslotResponse() {
+        return new GetFieldTimeslotResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetFieldTimeslotResponse.FieldTimeslot }
+     * 
+     */
+    public GetFieldTimeslotResponse.FieldTimeslot createGetFieldTimeslotResponseFieldTimeslot() {
+        return new GetFieldTimeslotResponse.FieldTimeslot();
     }
 
     /**
@@ -124,6 +146,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetFieldTimeslot }
+     * 
+     */
+    public GetFieldTimeslot createGetFieldTimeslot() {
+        return new GetFieldTimeslot();
+    }
+
+    /**
      * Create an instance of {@link GetFields }
      * 
      */
@@ -137,6 +167,22 @@ public class ObjectFactory {
      */
     public GetFieldsResponse createGetFieldsResponse() {
         return new GetFieldsResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetFreeTimeslot }
+     * 
+     */
+    public GetFreeTimeslot createGetFreeTimeslot() {
+        return new GetFreeTimeslot();
+    }
+
+    /**
+     * Create an instance of {@link GetFreeTimeslotResponse }
+     * 
+     */
+    public GetFreeTimeslotResponse createGetFreeTimeslotResponse() {
+        return new GetFreeTimeslotResponse();
     }
 
     /**
@@ -188,6 +234,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetSpeakerTimeslot }
+     * 
+     */
+    public GetSpeakerTimeslot createGetSpeakerTimeslot() {
+        return new GetSpeakerTimeslot();
+    }
+
+    /**
      * Create an instance of {@link InviteGraduates }
      * 
      */
@@ -201,6 +255,22 @@ public class ObjectFactory {
      */
     public InviteGraduatesResponse createInviteGraduatesResponse() {
         return new InviteGraduatesResponse();
+    }
+
+    /**
+     * Create an instance of {@link InviteSpeaker }
+     * 
+     */
+    public InviteSpeaker createInviteSpeaker() {
+        return new InviteSpeaker();
+    }
+
+    /**
+     * Create an instance of {@link InviteSpeakerResponse }
+     * 
+     */
+    public InviteSpeakerResponse createInviteSpeakerResponse() {
+        return new InviteSpeakerResponse();
     }
 
     /**
@@ -308,14 +378,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Graduate }
-     * 
-     */
-    public Graduate createGraduate() {
-        return new Graduate();
-    }
-
-    /**
      * Create an instance of {@link Guest }
      * 
      */
@@ -324,21 +386,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddSpeaker }{@code >}}
+     * Create an instance of {@link GetSpeakerTimeslotResponse.SpeakerTimeslot.Entry }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "addSpeaker")
-    public JAXBElement<AddSpeaker> createAddSpeaker(AddSpeaker value) {
-        return new JAXBElement<AddSpeaker>(_AddSpeaker_QNAME, AddSpeaker.class, null, value);
+    public GetSpeakerTimeslotResponse.SpeakerTimeslot.Entry createGetSpeakerTimeslotResponseSpeakerTimeslotEntry() {
+        return new GetSpeakerTimeslotResponse.SpeakerTimeslot.Entry();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link AddSpeakerResponse }{@code >}}
+     * Create an instance of {@link GetFieldTimeslotResponse.FieldTimeslot.Entry }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "addSpeakerResponse")
-    public JAXBElement<AddSpeakerResponse> createAddSpeakerResponse(AddSpeakerResponse value) {
-        return new JAXBElement<AddSpeakerResponse>(_AddSpeakerResponse_QNAME, AddSpeakerResponse.class, null, value);
+    public GetFieldTimeslotResponse.FieldTimeslot.Entry createGetFieldTimeslotResponseFieldTimeslotEntry() {
+        return new GetFieldTimeslotResponse.FieldTimeslot.Entry();
     }
 
     /**
@@ -396,6 +456,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFieldTimeslot }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFieldTimeslot")
+    public JAXBElement<GetFieldTimeslot> createGetFieldTimeslot(GetFieldTimeslot value) {
+        return new JAXBElement<GetFieldTimeslot>(_GetFieldTimeslot_QNAME, GetFieldTimeslot.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFieldTimeslotResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFieldTimeslotResponse")
+    public JAXBElement<GetFieldTimeslotResponse> createGetFieldTimeslotResponse(GetFieldTimeslotResponse value) {
+        return new JAXBElement<GetFieldTimeslotResponse>(_GetFieldTimeslotResponse_QNAME, GetFieldTimeslotResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetFields }{@code >}}
      * 
      */
@@ -411,6 +489,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFieldsResponse")
     public JAXBElement<GetFieldsResponse> createGetFieldsResponse(GetFieldsResponse value) {
         return new JAXBElement<GetFieldsResponse>(_GetFieldsResponse_QNAME, GetFieldsResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFreeTimeslot }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFreeTimeslot")
+    public JAXBElement<GetFreeTimeslot> createGetFreeTimeslot(GetFreeTimeslot value) {
+        return new JAXBElement<GetFreeTimeslot>(_GetFreeTimeslot_QNAME, GetFreeTimeslot.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetFreeTimeslotResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getFreeTimeslotResponse")
+    public JAXBElement<GetFreeTimeslotResponse> createGetFreeTimeslotResponse(GetFreeTimeslotResponse value) {
+        return new JAXBElement<GetFreeTimeslotResponse>(_GetFreeTimeslotResponse_QNAME, GetFreeTimeslotResponse.class, null, value);
     }
 
     /**
@@ -468,6 +564,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpeakerTimeslot }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getSpeakerTimeslot")
+    public JAXBElement<GetSpeakerTimeslot> createGetSpeakerTimeslot(GetSpeakerTimeslot value) {
+        return new JAXBElement<GetSpeakerTimeslot>(_GetSpeakerTimeslot_QNAME, GetSpeakerTimeslot.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetSpeakerTimeslotResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "getSpeakerTimeslotResponse")
+    public JAXBElement<GetSpeakerTimeslotResponse> createGetSpeakerTimeslotResponse(GetSpeakerTimeslotResponse value) {
+        return new JAXBElement<GetSpeakerTimeslotResponse>(_GetSpeakerTimeslotResponse_QNAME, GetSpeakerTimeslotResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link InviteGraduates }{@code >}}
      * 
      */
@@ -483,6 +597,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteGraduatesResponse")
     public JAXBElement<InviteGraduatesResponse> createInviteGraduatesResponse(InviteGraduatesResponse value) {
         return new JAXBElement<InviteGraduatesResponse>(_InviteGraduatesResponse_QNAME, InviteGraduatesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InviteSpeaker }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteSpeaker")
+    public JAXBElement<InviteSpeaker> createInviteSpeaker(InviteSpeaker value) {
+        return new JAXBElement<InviteSpeaker>(_InviteSpeaker_QNAME, InviteSpeaker.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InviteSpeakerResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation", name = "inviteSpeakerResponse")
+    public JAXBElement<InviteSpeakerResponse> createInviteSpeakerResponse(InviteSpeakerResponse value) {
+        return new JAXBElement<InviteSpeakerResponse>(_InviteSpeakerResponse_QNAME, InviteSpeakerResponse.class, null, value);
     }
 
     /**

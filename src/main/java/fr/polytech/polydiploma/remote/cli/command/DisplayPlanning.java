@@ -6,6 +6,11 @@ import fr.polytech.polydiploma.remote.stubs.Date;
 import fr.polytech.polydiploma.remote.stubs.Planning;
 import fr.polytech.polydiploma.remote.stubs.Timeslot;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
 public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
     public String identifier() {
@@ -46,6 +51,17 @@ public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
 //                    + entry.getValue().getStartingHour() + "h" + entry.getValue().getStartingMinute()
 //                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
 //        }
+
+        List<Timeslot> timeslots = new ArrayList<>();
+        shell.system.organisation.getSpeakerTimeslot().getEntry().forEach(entry -> timeslots.add(entry.getKey()));
+        List<Timeslot> fieldTimeslots = new ArrayList<>();
+        shell.system.organisation.getFieldTimeslot().getEntry().forEach(entry -> fieldTimeslots.add(entry.getKey()));
+
+        timeslots.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
+        fieldTimeslots.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
+
+        // TODO Afficher les timeslot dans l'ordre (du plus tot au plus tard)
+
     }
 
     @Override

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="graduate" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}graduate" minOccurs="0"/&gt;
+ *         &lt;element name="email" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,34 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getGuestFromGraduate", propOrder = {
-    "graduate"
+    "email"
 })
 public class GetGuestFromGraduate {
 
-    protected Graduate graduate;
+    protected String email;
 
     /**
-     * Gets the value of the graduate property.
+     * Gets the value of the email property.
      * 
      * @return
      *     possible object is
-     *     {@link Graduate }
+     *     {@link String }
      *     
      */
-    public Graduate getGraduate() {
-        return graduate;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Sets the value of the graduate property.
+     * Sets the value of the email property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Graduate }
+     *     {@link String }
      *     
      */
-    public void setGraduate(Graduate value) {
-        this.graduate = value;
+    public void setEmail(String value) {
+        this.email = value;
     }
 
 }
