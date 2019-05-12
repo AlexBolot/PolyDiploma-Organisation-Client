@@ -37,6 +37,6 @@ public class GetGuestFromGraduate extends Command<PolydiplomaOrganisationPublicA
 
     @Override
     public String describe() {
-        return "Recupere des inviter a partir d'un étudiant (recupere_inviter NOM_ETUDIANT PRENOM_ETUDIANT MAIL_ETUDIANT)";
+        return "Recupere des inviter a partir d'un étudiant (recupere_inviter MAIL_ETUDIANT)";
     }
 }

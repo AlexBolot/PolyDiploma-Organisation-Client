@@ -8,15 +8,15 @@ afficher_planning
 total
 
 # L'administration ajoute des intervenants
-inviter_VIP Alexandre Caminada alexandre.caminada@unice.fr 15 0 15 15
-inviter_VIP Igor Litovsky igor.litovsky@unice.fr 15 15 15 30
-inviter_VIP Michel Sardou michou@sardou.fr 15 30 16 0
-inviter_VIP Melon Musk melon.musk@spaceX.com 16 0 16 30
+inviter_VIP Alexandre Caminada alexandre.caminada@unice.fr
+inviter_VIP Igor Litovsky igor.litovsky@unice.fr
+inviter_VIP Michel Sardou michou@sardou.fr
+inviter_VIP Melon Musk melon.musk@spaceX.com
 
-confirmer_presence Alexandre Caminada alexandre.caminada@unice.fr
-confirmer_presence Igor Litovsky igor.litovsky@unice.fr
-confirmer_presence Michel Sardou michou@sardou.fr
-confirmer_presence Melon Musk melon.musk@spaceX.com
+confirmer_presence alexandre.caminada@unice.fr 15 0 15 15
+confirmer_presence igor.litovsky@unice.fr 15 15 15 30
+confirmer_presence michou@sardou.fr 15 30 16 0
+confirmer_presence melon.musk@spaceX.com 16 0 16 30
 
 
 # L'administration affiche la liste des participants, le total 

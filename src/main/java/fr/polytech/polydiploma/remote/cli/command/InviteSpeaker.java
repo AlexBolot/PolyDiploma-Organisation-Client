@@ -25,7 +25,10 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
         speaker.setLastname(lastname);
         speaker.setMail(mail);
 
-        shell.system.organisation.inviteSpeaker(speaker);
+        if (shell.system.organisation.inviteSpeaker(speaker))
+            log("Le VIP " + speaker.getFirstname() + " " + speaker.getLastname() + " a bien été invité a cette adresse mail : " + speaker.getMail());
+        else
+            log("Il y a eu un probleme le VIP n'a pas été invité");
     }
 
     @Override

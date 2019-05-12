@@ -36,7 +36,10 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
         timeslut.setEndingHour(endingHour);
         timeslut.setEndingMinute(endingMinute);
 
-        shell.system.organisation.setDateOfCeremony(date, timeslut);
+        if (shell.system.organisation.setDateOfCeremony(date, timeslut))
+            log("La date et le creneau de la ceremoni a été défini");
+        else
+            log("Il y a un eu un probleme, la date et le creneau n'a pas pu être défini");
     }
 
     @Override

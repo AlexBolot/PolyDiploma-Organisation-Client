@@ -54,7 +54,9 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="setFieldTimeslotResponse">
-                <xs:sequence/>
+                <xs:sequence>
+                    <xs:element name="sucess" type="xs:boolean"/>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="getAllParticipant">
                 <xs:sequence/>
@@ -134,7 +136,9 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="setDateOfCeremonyResponse">
-                <xs:sequence/>
+                <xs:sequence>
+                    <xs:element name="sucess" type="xs:boolean"/>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="inviteSpeaker">
                 <xs:sequence>
@@ -142,7 +146,9 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="inviteSpeakerResponse">
-                <xs:sequence/>
+                <xs:sequence>
+                    <xs:element name="sucess" type="xs:boolean"/>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="getParticipantList">
                 <xs:sequence/>
@@ -201,7 +207,9 @@
                 </xs:sequence>
             </xs:complexType>
             <xs:complexType name="confirmSpeakerAttendanceResponse">
-                <xs:sequence/>
+                <xs:sequence>
+                    <xs:element name="sucess" type="xs:boolean"/>
+                </xs:sequence>
             </xs:complexType>
             <xs:complexType name="getFields">
                 <xs:sequence/>

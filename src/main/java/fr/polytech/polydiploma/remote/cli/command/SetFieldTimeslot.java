@@ -30,7 +30,10 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
         timeslot.setEndingHour(endingHour);
         timeslot.setEndingMinute(endingMinute);
 
-        shell.system.organisation.setFieldTimeslot(field, timeslot);
+        if (shell.system.organisation.setFieldTimeslot(field, timeslot))
+            log("Le creneau pour la filière " + fieldString + " a bien été enregistré");
+        else
+            log("Il y a eu une erreru lors de l'enregistrement du creneau pour la filière");
     }
 
     @Override

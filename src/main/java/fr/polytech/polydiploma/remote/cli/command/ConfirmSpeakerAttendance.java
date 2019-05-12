@@ -31,12 +31,14 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
         timeslot.setEndingHour(heureFin);
 
         try {
-            shell.system.organisation.confirmSpeakerAttendance(mail, timeslot);
-            log("La présence du VIP est confirmé");
+            if (shell.system.organisation.confirmSpeakerAttendance(mail, timeslot))
+                log("La présence du VIP est confirmé");
+            else
+                log("il y a eu un probleme la confimation de la venue du VIP n'a pas être éffectuer");
         } catch (ExternalPartnerException_Exception e) {
             log("Le(s) service(s) externe(s) ne fonctionne pas : " + e.getMessage());
         } catch (TimeslotOverlapException_Exception e) {
-            log("Le crenaux empiette sur un autre : " + e.getMessage());
+            log("Le creneau empiette sur un autre : " + e.getMessage());
         }
     }
 

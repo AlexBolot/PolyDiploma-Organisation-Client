@@ -16,7 +16,10 @@ public class SendMailToHost extends Command<PolydiplomaOrganisationPublicAPI> {
 
     @Override
     public void execute() throws Exception {
-        shell.system.organisation.sendMail(hostMail);
+        if (shell.system.organisation.sendMail(hostMail))
+            log("Le mail pour réserver la salle de cérénomi a bien été envoyé a " + hostMail);
+        else
+            log("Il y a eu une erreur lors de l'envoie du mail");
     }
 
     @Override
