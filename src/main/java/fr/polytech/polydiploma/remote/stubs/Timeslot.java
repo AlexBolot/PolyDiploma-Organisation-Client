@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for timeslot complex type.
+ * <p>Classe Java pour timeslot complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="timeslot"&gt;
@@ -43,7 +43,7 @@ public class Timeslot {
     protected int startingMinute;
 
     /**
-     * Gets the value of the endingHour property.
+     * Obtient la valeur de la propriété endingHour.
      * 
      */
     public int getEndingHour() {
@@ -51,7 +51,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the endingHour property.
+     * Définit la valeur de la propriété endingHour.
      * 
      */
     public void setEndingHour(int value) {
@@ -59,7 +59,7 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the endingMinute property.
+     * Obtient la valeur de la propriété endingMinute.
      * 
      */
     public int getEndingMinute() {
@@ -67,7 +67,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the endingMinute property.
+     * Définit la valeur de la propriété endingMinute.
      * 
      */
     public void setEndingMinute(int value) {
@@ -75,7 +75,7 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the startingHour property.
+     * Obtient la valeur de la propriété startingHour.
      * 
      */
     public int getStartingHour() {
@@ -83,7 +83,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the startingHour property.
+     * Définit la valeur de la propriété startingHour.
      * 
      */
     public void setStartingHour(int value) {
@@ -91,7 +91,7 @@ public class Timeslot {
     }
 
     /**
-     * Gets the value of the startingMinute property.
+     * Obtient la valeur de la propriété startingMinute.
      * 
      */
     public int getStartingMinute() {
@@ -99,7 +99,7 @@ public class Timeslot {
     }
 
     /**
-     * Sets the value of the startingMinute property.
+     * Définit la valeur de la propriété startingMinute.
      * 
      */
     public void setStartingMinute(int value) {

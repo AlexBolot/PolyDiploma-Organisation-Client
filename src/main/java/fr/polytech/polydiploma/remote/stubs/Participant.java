@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for participant complex type.
+ * <p>Classe Java pour participant complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="participant"&gt;
@@ -45,7 +45,7 @@ public abstract class Participant {
     protected String lastname;
 
     /**
-     * Gets the value of the firstname property.
+     * Obtient la valeur de la propriété firstname.
      * 
      * @return
      *     possible object is
@@ -57,7 +57,7 @@ public abstract class Participant {
     }
 
     /**
-     * Sets the value of the firstname property.
+     * Définit la valeur de la propriété firstname.
      * 
      * @param value
      *     allowed object is
@@ -69,7 +69,7 @@ public abstract class Participant {
     }
 
     /**
-     * Gets the value of the id property.
+     * Obtient la valeur de la propriété id.
      * 
      */
     public int getId() {
@@ -77,7 +77,7 @@ public abstract class Participant {
     }
 
     /**
-     * Sets the value of the id property.
+     * Définit la valeur de la propriété id.
      * 
      */
     public void setId(int value) {
@@ -85,7 +85,7 @@ public abstract class Participant {
     }
 
     /**
-     * Gets the value of the lastname property.
+     * Obtient la valeur de la propriété lastname.
      * 
      * @return
      *     possible object is
@@ -97,7 +97,7 @@ public abstract class Participant {
     }
 
     /**
-     * Sets the value of the lastname property.
+     * Définit la valeur de la propriété lastname.
      * 
      * @param value
      *     allowed object is

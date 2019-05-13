@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour SpeakerAlreadyExistException complex type.
+ * <p>Classe Java pour inviteSpeaker complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="SpeakerAlreadyExistException"&gt;
+ * &lt;complexType name="inviteSpeaker"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="speaker" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}speaker" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -26,35 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SpeakerAlreadyExistException", propOrder = {
-    "message"
+@XmlType(name = "inviteSpeaker", propOrder = {
+    "speaker"
 })
-public class SpeakerAlreadyExistException {
+public class InviteSpeaker {
 
-    protected String message;
+    protected Speaker speaker;
 
     /**
-     * Obtient la valeur de la propriété message.
+     * Obtient la valeur de la propriété speaker.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Speaker }
      *     
      */
-    public String getMessage() {
-        return message;
+    public Speaker getSpeaker() {
+        return speaker;
     }
 
     /**
-     * Définit la valeur de la propriété message.
+     * Définit la valeur de la propriété speaker.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Speaker }
      *     
      */
-    public void setMessage(String value) {
-        this.message = value;
+    public void setSpeaker(Speaker value) {
+        this.speaker = value;
     }
 
 }

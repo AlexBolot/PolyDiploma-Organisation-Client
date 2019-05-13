@@ -32,11 +32,11 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
 
         try {
             if (shell.system.organisation.confirmSpeakerAttendance(mail, timeslot))
-                log("La présence du VIP est confirmé");
+                log("La présence du VIP est confirmée");
             else
-                log("il y a eu un probleme la confimation de la venue du VIP n'a pas être éffectuer");
+                log("Il y a eu un problème la confimation de la venue du VIP n'a pas pu être éffectuée.");
         } catch (ExternalPartnerException_Exception e) {
-            log("Le(s) service(s) externe(s) ne fonctionne pas : " + e.getMessage());
+            log("Le(s) service(s) externe(s) ne fonctionne(nt) pas : " + e.getMessage());
         } catch (TimeslotOverlapException_Exception e) {
             log("Le creneau empiette sur un autre : " + e.getMessage());
         }

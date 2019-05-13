@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour getParticipantListResponse complex type.
+ * <p>Classe Java pour getFreeTimeslotResponse complex type.
  * 
  * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
- * &lt;complexType name="getParticipantListResponse"&gt;
+ * &lt;complexType name="getFreeTimeslotResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="participant_list" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}participant" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element name="free_timeslot" type="{http://www.polytech.unice.fr/si/4a/isa/polydiploma/organisation}timeslot" maxOccurs="unbounded" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -29,41 +29,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getParticipantListResponse", propOrder = {
-    "participantList"
+@XmlType(name = "getFreeTimeslotResponse", propOrder = {
+    "freeTimeslot"
 })
-public class GetParticipantListResponse {
+public class GetFreeTimeslotResponse {
 
-    @XmlElement(name = "participant_list")
-    protected List<Participant> participantList;
+    @XmlElement(name = "free_timeslot")
+    protected List<Timeslot> freeTimeslot;
 
     /**
-     * Gets the value of the participantList property.
+     * Gets the value of the freeTimeslot property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the participantList property.
+     * This is why there is not a <CODE>set</CODE> method for the freeTimeslot property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getParticipantList().add(newItem);
+     *    getFreeTimeslot().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Participant }
+     * {@link Timeslot }
      * 
      * 
      */
-    public List<Participant> getParticipantList() {
-        if (participantList == null) {
-            participantList = new ArrayList<Participant>();
+    public List<Timeslot> getFreeTimeslot() {
+        if (freeTimeslot == null) {
+            freeTimeslot = new ArrayList<Timeslot>();
         }
-        return this.participantList;
+        return this.freeTimeslot;
     }
 
 }

@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for guest complex type.
+ * <p>Classe Java pour guest complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="guest"&gt;
@@ -39,7 +39,7 @@ public class Guest
     protected boolean payingGuest;
 
     /**
-     * Gets the value of the hasPayed property.
+     * Obtient la valeur de la propriété hasPayed.
      * 
      */
     public boolean isHasPayed() {
@@ -47,7 +47,7 @@ public class Guest
     }
 
     /**
-     * Sets the value of the hasPayed property.
+     * Définit la valeur de la propriété hasPayed.
      * 
      */
     public void setHasPayed(boolean value) {
@@ -55,7 +55,7 @@ public class Guest
     }
 
     /**
-     * Gets the value of the payingGuest property.
+     * Obtient la valeur de la propriété payingGuest.
      * 
      */
     public boolean isPayingGuest() {
@@ -63,7 +63,7 @@ public class Guest
     }
 
     /**
-     * Sets the value of the payingGuest property.
+     * Définit la valeur de la propriété payingGuest.
      * 
      */
     public void setPayingGuest(boolean value) {

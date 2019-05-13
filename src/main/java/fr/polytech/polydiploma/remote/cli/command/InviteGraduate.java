@@ -13,7 +13,7 @@ public class InviteGraduate extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
     public void execute() throws Exception {
         shell.system.organisation.inviteGraduates();
-        log("Les étudiants ont été inviter");
+        log("Les étudiants ont été invités");
     }
 
     @Override

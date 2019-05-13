@@ -21,7 +21,7 @@ public class GetGuestFromGraduate extends Command<PolydiplomaOrganisationPublicA
         List<Guest> guests = shell.system.organisation.getGuestFromGraduate(mail);
 
         if (guests.isEmpty())
-            log("Il n'y a pas d'invité pour cette étudiant");
+            log("Il n'y a pas d'invité pour cet étudiant");
         else {
             for (Guest g : guests) {
                 log(g.getFirstname() + " " + g.getLastname() + " : " + (g.isPayingGuest() ? (g.isHasPayed() ? "a payé" : "n'a pas payé") : "venue gratuite"));

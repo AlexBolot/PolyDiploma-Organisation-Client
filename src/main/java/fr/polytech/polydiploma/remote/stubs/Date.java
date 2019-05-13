@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for date complex type.
+ * <p>Classe Java pour date complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="date"&gt;
@@ -40,7 +40,7 @@ public class Date {
     protected int year;
 
     /**
-     * Gets the value of the day property.
+     * Obtient la valeur de la propriété day.
      * 
      */
     public int getDay() {
@@ -48,7 +48,7 @@ public class Date {
     }
 
     /**
-     * Sets the value of the day property.
+     * Définit la valeur de la propriété day.
      * 
      */
     public void setDay(int value) {
@@ -56,7 +56,7 @@ public class Date {
     }
 
     /**
-     * Gets the value of the month property.
+     * Obtient la valeur de la propriété month.
      * 
      */
     public int getMonth() {
@@ -64,7 +64,7 @@ public class Date {
     }
 
     /**
-     * Sets the value of the month property.
+     * Définit la valeur de la propriété month.
      * 
      */
     public void setMonth(int value) {
@@ -72,7 +72,7 @@ public class Date {
     }
 
     /**
-     * Gets the value of the year property.
+     * Obtient la valeur de la propriété year.
      * 
      */
     public int getYear() {
@@ -80,7 +80,7 @@ public class Date {
     }
 
     /**
-     * Sets the value of the year property.
+     * Définit la valeur de la propriété year.
      * 
      */
     public void setYear(int value) {

@@ -24,6 +24,6 @@ public class GetAllParticipants extends Command<PolydiplomaOrganisationPublicAPI
 
     @Override
     public String describe() {
-        return "Recupere tous les participants qui ont été inviter";
+        return "Recupere tous les participants qui ont été invités";
     }
 }

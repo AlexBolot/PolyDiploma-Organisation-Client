@@ -7,9 +7,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getGuestFromGraduate complex type.
+ * <p>Classe Java pour getGuestFromGraduate complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="getGuestFromGraduate"&gt;
@@ -34,7 +34,7 @@ public class GetGuestFromGraduate {
     protected String email;
 
     /**
-     * Gets the value of the email property.
+     * Obtient la valeur de la propriété email.
      * 
      * @return
      *     possible object is
@@ -46,7 +46,7 @@ public class GetGuestFromGraduate {
     }
 
     /**
-     * Sets the value of the email property.
+     * Définit la valeur de la propriété email.
      * 
      * @param value
      *     allowed object is
