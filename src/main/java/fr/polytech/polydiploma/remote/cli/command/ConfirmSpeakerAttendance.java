@@ -45,14 +45,14 @@ public class ConfirmSpeakerAttendance extends Command<PolydiplomaOrganisationPub
     @Override
     public void load(List<String> args) {
         mail = args.get(0);
-        minuteDebut = tryParse(args.get(1));
-        heureDebut = tryParse(args.get(2));
-        minuteFin = tryParse(args.get(3));
-        heureFin = tryParse(args.get(4));
+        heureDebut = tryParse(args.get(1));
+        minuteDebut = tryParse(args.get(2));
+        heureFin = tryParse(args.get(3));
+        minuteFin = tryParse(args.get(4));
     }
 
     @Override
     public String describe() {
-        return "Confirme la présence d'un vip à la cérémonie (confirmer_presence MAIL MINUTE_DEBUT HEURE_DEBUT MINUTE_FIN HEURE_FIN)";
+        return "Confirme la présence d'un vip à la cérémonie (confirmer_presence MAIL HEURE_DEBUT MINUTE_DEBUT HEURE_FIN MINUTE_FIN)";
     }
 }

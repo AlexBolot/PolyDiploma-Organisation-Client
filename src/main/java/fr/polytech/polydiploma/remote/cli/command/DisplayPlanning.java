@@ -2,14 +2,11 @@ package fr.polytech.polydiploma.remote.cli.command;
 
 import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.framework.Command;
+import fr.polytech.polydiploma.remote.stubs.*;
 import fr.polytech.polydiploma.remote.stubs.Date;
-import fr.polytech.polydiploma.remote.stubs.Planning;
-import fr.polytech.polydiploma.remote.stubs.Timeslot;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
@@ -29,10 +26,10 @@ public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
             String startString = timeslot.getStartingHour() + "h" + timeslot.getStartingMinute();
             String endString = timeslot.getEndingHour() + "h" + timeslot.getEndingMinute();
 
-            log("La cérémonie est prévue pour le " + dateString + " de " + startString + " a " + endString);
+            log("La cérémonie est prévue pour le " + dateString + " de " + startString + " a " + endString + "\n\n");
 
         } catch (NullPointerException e) {
-            log("La date et l'heure de la cerenomie n'est toujours pas défini");
+            log("La date et l'heure de la cerenomie n'est toujours pas défini\n\n");
         }
 //        if (planning.getTimeslots().getEntry().isEmpty()) {
 //            System.out.println("    Il n'y a aucun intervenant avec un horaire");
@@ -52,15 +49,56 @@ public class DisplayPlanning extends Command<PolydiplomaOrganisationPublicAPI> {
 //                    + " a " + entry.getValue().getEndingHour() + "h" + entry.getValue().getEndingMinute()));
 //        }
 
-        List<Timeslot> timeslots = new ArrayList<>();
-        shell.system.organisation.getSpeakerTimeslot().getEntry().forEach(entry -> timeslots.add(entry.getKey()));
-        List<Timeslot> fieldTimeslots = new ArrayList<>();
-        shell.system.organisation.getFieldTimeslot().getEntry().forEach(entry -> fieldTimeslots.add(entry.getKey()));
 
-        timeslots.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
-        fieldTimeslots.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
+        Map<Timeslot, Speaker> timeslots = new HashMap<>();
+        shell.system.organisation.getSpeakerTimeslot().getEntry().forEach(entry -> timeslots.put(entry.getKey(), entry.getValue()));
+        Map<Timeslot, Field> fieldTimeslots = new HashMap<>();
+        shell.system.organisation.getFieldTimeslot().getEntry().forEach(entry -> fieldTimeslots.put(entry.getKey(), entry.getValue()));
 
-        // TODO Afficher les timeslot dans l'ordre (du plus tot au plus tard)
+        List<Timeslot> speakerList = new ArrayList<>(timeslots.keySet());
+        List<Timeslot> fieldList = new ArrayList<>(fieldTimeslots.keySet());
+
+        speakerList.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
+        fieldList.sort(Comparator.comparing(o -> LocalTime.of(o.getStartingHour(), o.getStartingMinute())));
+
+        if (timeslots.isEmpty() && fieldTimeslots.isEmpty()) {
+            log("Il n'y a pas de creneau pour le planning a l'heure actuelle");
+        }
+
+
+        int speakerIndex = 0;
+        int fieldIndex = 0;
+        while (speakerIndex < speakerList.size() || fieldIndex < fieldList.size()) {
+            if (speakerIndex >= speakerList.size() && fieldIndex < fieldList.size()) {
+                Timeslot t = fieldList.get(fieldIndex);
+                Field f = fieldTimeslots.get(t);
+                log("La promotion de la filière " + f.toString() + " passe de " + t.getStartingHour() + "h" + t.getStartingMinute() + " a" + t.getEndingHour() + "h" + t.getEndingMinute());
+                fieldIndex++;
+            }
+
+            else if (fieldIndex >= fieldList.size() && speakerIndex < speakerList.size()) {
+                Timeslot t = speakerList.get(speakerIndex);
+                Speaker s = timeslots.get(t);
+                log("Le VIP " + s.getFirstname() + " " + s.getLastname() + " passe de " + t.getStartingHour() + "h" + t.getStartingMinute() + " a" + t.getEndingHour() + "h" + t.getEndingMinute());
+                speakerIndex++;
+            }
+
+            else if (fieldIndex < fieldList.size() && speakerIndex < speakerList.size()) {
+                Timeslot t1 = speakerList.get(speakerIndex);
+                Timeslot t2 = fieldList.get(fieldIndex);
+
+                if (LocalTime.of(t1.getStartingHour(), t1.getStartingMinute()).isBefore(LocalTime.of(t2.getStartingHour(), t2.getStartingMinute()))) {
+                    Speaker s = timeslots.get(t1);
+                    log("Le VIP " + s.getFirstname() + " " + s.getLastname() + " passe de " + t1.getStartingHour() + "h" + t1.getStartingMinute() + " a " + t1.getEndingHour() + "h" + t1.getEndingMinute());
+                    speakerIndex++;
+                } else {
+                    Field f = fieldTimeslots.get(t2);
+                    log("La promotion de la filière " + f.toString() + " passe de " + t2.getStartingHour() + "h" + t2.getStartingMinute() + " a " + t2.getEndingHour() + "h" + t2.getEndingMinute());
+                    fieldIndex++;
+                }
+
+            }
+        }
 
     }
 
