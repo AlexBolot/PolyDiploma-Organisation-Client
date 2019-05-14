@@ -1,5 +1,5 @@
-# L'administation définit la date de la cérémonie et invite des étudiants
-definir_date 15 6 2019 14 30 18 30
+# L'administation défini la date de la cérémonie et invite des étudiants
+definir_date 14 5 2019 20 00 23 59
 inviter_etudiants
 
 afficher_planning
@@ -13,18 +13,17 @@ inviter_VIP Igor Litovsky igor.litovsky@unice.fr
 inviter_VIP Michel Sardou michou@sardou.fr
 inviter_VIP Melon Musk melon.musk@spaceX.com
 
-confirmer_presence alexandre.caminada@unice.fr 15 0 15 15
-confirmer_presence igor.litovsky@unice.fr 15 15 15 30
-confirmer_presence michou@sardou.fr 15 30 16 0
 confirmer_presence melon.musk@spaceX.com 16 0 16 30
+confirmer_presence alexandre.caminada@unice.fr 15 0 15 15
+confirmer_presence michou@sardou.fr 15 30 16 0
+confirmer_presence igor.litovsky@unice.fr 15 15 15 30
 
 liste_filieres
 
 horaire_filiere SI 14 30 15 00
 horaire_filiere MAM 16 30 18 00
 
-
-# L'administration affiche la liste des participants, le total 
+# L'administration affiche la liste des participants, le total
 liste_participants
 total
 
@@ -45,3 +44,9 @@ payer 2500 FR1234567989
 
 #On envoie un mail à l'hôte de cérémonie
 reserver_ceremonie host@gmail.com
+
+#Un étudiant consulte son solde
+voir_solde hugo.francois@etu.unice.fr
+
+#Un étudiant paie pour son invité payant
+payer hugo.francois@etu.unice.fr 444433332221111

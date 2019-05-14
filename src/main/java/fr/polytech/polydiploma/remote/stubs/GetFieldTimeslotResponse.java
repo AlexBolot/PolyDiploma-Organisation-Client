@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Classe Java pour getFieldTimeslotResponse complex type.
+ * <p>Java class for getFieldTimeslotResponse complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
  * &lt;complexType name="getFieldTimeslotResponse"&gt;
@@ -60,7 +60,7 @@ public class GetFieldTimeslotResponse {
     protected GetFieldTimeslotResponse.FieldTimeslot fieldTimeslot;
 
     /**
-     * Obtient la valeur de la propriété fieldTimeslot.
+     * Gets the value of the fieldTimeslot property.
      * 
      * @return
      *     possible object is
@@ -72,7 +72,7 @@ public class GetFieldTimeslotResponse {
     }
 
     /**
-     * Définit la valeur de la propriété fieldTimeslot.
+     * Sets the value of the fieldTimeslot property.
      * 
      * @param value
      *     allowed object is
@@ -85,9 +85,9 @@ public class GetFieldTimeslotResponse {
 
 
     /**
-     * <p>Classe Java pour anonymous complex type.
+     * <p>Java class for anonymous complex type.
      * 
-     * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+     * <p>The following schema fragment specifies the expected content contained within this class.
      * 
      * <pre>
      * &lt;complexType&gt;
@@ -153,9 +153,9 @@ public class GetFieldTimeslotResponse {
 
 
         /**
-         * <p>Classe Java pour anonymous complex type.
+         * <p>Java class for anonymous complex type.
          * 
-         * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+         * <p>The following schema fragment specifies the expected content contained within this class.
          * 
          * <pre>
          * &lt;complexType&gt;
@@ -184,7 +184,7 @@ public class GetFieldTimeslotResponse {
             protected Field value;
 
             /**
-             * Obtient la valeur de la propriété key.
+             * Gets the value of the key property.
              * 
              * @return
              *     possible object is
@@ -196,7 +196,7 @@ public class GetFieldTimeslotResponse {
             }
 
             /**
-             * Définit la valeur de la propriété key.
+             * Sets the value of the key property.
              * 
              * @param value
              *     allowed object is
@@ -208,7 +208,7 @@ public class GetFieldTimeslotResponse {
             }
 
             /**
-             * Obtient la valeur de la propriété value.
+             * Gets the value of the value property.
              * 
              * @return
              *     possible object is
@@ -220,7 +220,7 @@ public class GetFieldTimeslotResponse {
             }
 
             /**
-             * Définit la valeur de la propriété value.
+             * Sets the value of the value property.
              * 
              * @param value
              *     allowed object is
