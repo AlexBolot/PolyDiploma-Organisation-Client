@@ -1,5 +1,7 @@
 package fr.polytech.polydiploma.remote.cli.framework;
 
+import fr.polytech.polydiploma.remote.stubs.Timeslot;
+
 import java.util.List;
 
 public abstract class Command<T> {
@@ -48,6 +50,10 @@ public abstract class Command<T> {
         System.out.println("\t" + message);
     }
 
+    protected String errorMessage(String message) {
+      return  message.split("#MESSAGE#")[1];
+    }
+
     /**
      * Parses a given [value] into an integer
      *
@@ -61,6 +67,19 @@ public abstract class Command<T> {
             log("Erreur : " + value + " n'est pas un nombre !");
             return -1;
         }
+    }
+
+    /**
+     * This methods replicates a Timeslot's toString method,
+     * since the generated stubs don't have toString methods
+     *
+     * @param timeslot Timeslot to transform as String
+     * @return String value representing a Timeslot
+     */
+    protected String asString(Timeslot timeslot) {
+        String startString = timeslot.getStartingHour() + "h" + timeslot.getStartingMinute();
+        String endString = timeslot.getEndingHour() + "h" + timeslot.getEndingMinute();
+        return "Créneau de " + startString + " à " + endString;
     }
 
 }

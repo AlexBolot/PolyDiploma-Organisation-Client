@@ -1,5 +1,7 @@
 package fr.polytech.polydiploma.remote.cli.framework;
 
+import com.sun.xml.internal.ws.client.ClientTransportException;
+
 import java.io.InputStream;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -55,9 +57,11 @@ public class Shell<T> {
                         shouldContinue = processCommand(keyword, args);
 
                 } catch (IllegalArgumentException iae) {
-                    System.err.println("Mauvais paramétres pour la commande " + keyword + ": " + args);
+                    System.err.println("Mauvais paramètres pour la commande " + keyword + ": " + args);
+                } catch (ClientTransportException e) {
+                    System.err.println("Impossible de se connecter au système interne de PolyDiploma");
                 } catch (Exception e) {
-                    System.err.println("Exception caught while processing command:\n  " + e);
+                    System.err.println("Erreur pendant l'execussion de la commande:\n  " + e);
                 }
             }
         }

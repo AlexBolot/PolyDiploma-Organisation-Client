@@ -4,6 +4,7 @@ import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.framework.Command;
 import fr.polytech.polydiploma.remote.stubs.Field;
 import fr.polytech.polydiploma.remote.stubs.Timeslot;
+import fr.polytech.polydiploma.remote.stubs.TimeslotOverlapException_Exception;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class SetFieldTimeslot extends Command<PolydiplomaOrganisationPublicAPI> 
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() throws TimeslotOverlapException_Exception {
         Field field = Field.valueOf(fieldString);
 
         Timeslot timeslot = new Timeslot();

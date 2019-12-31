@@ -21,7 +21,6 @@ public class ListParticipant extends Command<PolydiplomaOrganisationPublicAPI> {
             log("Il n'y a pas de participant pour cette remise des diplômes");
         else
             participants.stream().map(participant -> participant.getFirstname() + " " + participant.getLastname()).forEach(this::log);
-
     }
 
     @Override

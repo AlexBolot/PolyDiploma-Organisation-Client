@@ -12,7 +12,12 @@ public class Total extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
     public void execute() {
         int nb = shell.system.organisation.getParticipantList().size();
-        log("Il y a " + nb + " participant" + (nb > 1 ? "s" : ""));
+
+        if (nb == 0) {
+            log("Aucun participant n'a confirmé sa présence");
+        } else {
+            log("Il y a " + nb + " participant" + (nb > 1 ? "s" : ""));
+        }
     }
 
     @Override

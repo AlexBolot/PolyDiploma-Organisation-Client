@@ -25,18 +25,18 @@ public class SetDateAndHour extends Command<PolydiplomaOrganisationPublicAPI> {
     @Override
     public void execute() {
         Date date = new Date();
-        Timeslot timeslut = new Timeslot();
+        Timeslot timeslot = new Timeslot();
 
         date.setDay(day);
         date.setMonth(month);
         date.setYear(year);
 
-        timeslut.setStartingHour(startingHour);
-        timeslut.setStartingMinute(startingMinute);
-        timeslut.setEndingHour(endingHour);
-        timeslut.setEndingMinute(endingMinute);
+        timeslot.setStartingHour(startingHour);
+        timeslot.setStartingMinute(startingMinute);
+        timeslot.setEndingHour(endingHour);
+        timeslot.setEndingMinute(endingMinute);
 
-        if (shell.system.organisation.setDateOfCeremony(date, timeslut))
+        if (shell.system.organisation.setDateOfCeremony(date, timeslot))
             log("La date et le creneau de la ceremonie ont été définis");
         else
             log("Il y a un eu un probleme, la date et le creneau n'ont pas pu être définis");

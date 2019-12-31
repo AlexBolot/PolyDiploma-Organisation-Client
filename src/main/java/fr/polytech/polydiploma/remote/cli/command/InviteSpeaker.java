@@ -2,8 +2,7 @@ package fr.polytech.polydiploma.remote.cli.command;
 
 import fr.polytech.polydiploma.remote.api.PolydiplomaOrganisationPublicAPI;
 import fr.polytech.polydiploma.remote.cli.framework.Command;
-import fr.polytech.polydiploma.remote.stubs.Speaker;
-import fr.polytech.polydiploma.remote.stubs.Timeslot;
+import fr.polytech.polydiploma.remote.stubs.*;
 
 import java.util.List;
 
@@ -19,7 +18,7 @@ public class InviteSpeaker extends Command<PolydiplomaOrganisationPublicAPI> {
     }
 
     @Override
-    public void execute() throws Exception {
+    public void execute() throws SpeakerAlreadyExistException_Exception, ExternalPartnerException_Exception {
         Speaker speaker = new Speaker();
         speaker.setFirstname(firstname);
         speaker.setLastname(lastname);

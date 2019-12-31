@@ -11,12 +11,16 @@ public class GetDeliveryDate extends Command<PolydiplomaOrganisationPublicAPI> {
     }
 
     @Override
-    public void execute() throws Exception {
-        Date date = shell.system.organisation.getDeliveryDate();
+    public void execute() {
+        try {
 
-        String dateString = date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+            Date date = shell.system.organisation.getDeliveryDate();
+            String dateString = date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+            log("La date de livraison des diplômes est le " + dateString);
 
-        log("La date de livraison des diplômes est le " + dateString);
+        } catch (Exception e) {
+            log("Erreur pendant la demande de livraison : " + errorMessage(e.getMessage()));
+        }
     }
 
     @Override
